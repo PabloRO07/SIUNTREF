@@ -44,8 +44,8 @@ plt.style.use('seaborn')
 
 fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, sharex=True)
 
-ax1.plot(T, x3, label='Sin Filtro de Media Movil', color='r')
-ax2.plot(T, salida, label='Con Filtro de Media Movil')
+ax1.plot(T, x3, color='r')
+ax2.plot(T, salida)
 
 ax1.set_title('Sin Filtro de Media Movil')
 ax1.set_ylabel('Amplitude')

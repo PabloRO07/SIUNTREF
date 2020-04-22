@@ -1,6 +1,6 @@
 import numpy as np
-import fmm
 import FMM
+import fmm
 
 fs = 44100
 f = 10000
@@ -25,14 +25,14 @@ plt.style.use('seaborn')
 
 fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, sharex=True)
 
-ax1.plot(T, salida2, label='No recursivo', color='r')
-ax2.plot(T, salida1, label='Recursivo')
+ax1.plot(T, salida2, color='r')
+ax2.plot(T, salida1)
 
-ax1.set_title('Sin Filtro de Media Movil')
+ax1.set_title('Recurisvo')
 ax1.set_ylabel('Amplitude')
 
 
-ax2.set_title('Con Filtro de Media Movil')
+ax2.set_title('No recursivo')
 ax2.set_ylabel('Amplitude')
 ax2.set_xlabel('Time[s]')
 
