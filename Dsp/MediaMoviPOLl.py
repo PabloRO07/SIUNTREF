@@ -16,5 +16,5 @@ for i in range(len(x)):
         y[i] = np.sum(x[i:M])
     elif i+1 < len(x):
         print(i)
-        y[i] = y[i-1] - x[i-1] + x[i+1]
+        y[i] = y[i-1] - x[i-1] + x[i-1+m]
 print(y)

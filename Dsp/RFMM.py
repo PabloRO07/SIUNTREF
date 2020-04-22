@@ -1,5 +1,5 @@
 import numpy as np 
-from matplotlib import pyplot as plt 
+from matplotlib import pyplot as plt
 
 
 def fmm(x, m):
@@ -12,20 +12,18 @@ def fmm(x, m):
     """
     L = len(x)
     y = np.zeros(L)
-    N = L-m
-    p = round((m-1)/2)
-    q = p+1
+    n = L-m
 
-    for i in range(N):
+    for i in range(n):
         if i == 0:
             y[i] = np.sum(x[i:m+i])/m
         else:
-            y[i] = y[i-1] + x[i+p] - x[i-q]
+            y[i] = y[i-1] + (x[i+m-1] - x[i-1])/m
         
     return y
 
 
-fs = 192000
+fs = 44100
 f = 10000
 t = 0.5
 # Vector tiempo
@@ -34,8 +32,8 @@ T = np.linspace(0, t, int(fs*t))
 xt = 2+np.sin(2*np.pi*f*T)
 # Creo la señal del punto 3 para compararla
 ruidito3 = np.random.normal(0, 3, len(T))
-# Normalizo y sumo el ruido a la señal
-x3 = ruidito3+xt / max(ruidito3+xt)
+# sumo el ruido a la señal
+x3 = ruidito3+xt
 # Aplico el filtro
 salida = fmm(x3, 51)
 
