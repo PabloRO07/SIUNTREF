@@ -13,7 +13,7 @@ def fmm(x, m):
     L = len(x)
     y = np.zeros(L)
     N = L-m
-    p = round((M-1)/2)
+    p = round((m-1)/2)
     q = p+1
 
     for i in range(N):
