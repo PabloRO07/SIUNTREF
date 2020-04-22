@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def fmm(x, m):
+def RFMM(x, m):
     """Return a filtered signal with a FMM
 
     Parameters:
@@ -23,37 +23,37 @@ def fmm(x, m):
     return y
 
 
-fs = 44100
-f = 10000
-t = 0.5
-# Vector tiempo
-T = np.linspace(0, t, int(fs*t))
-# Señal x(t)
-xt = 2+np.sin(2*np.pi*f*T)
-# Creo la señal del punto 3 para compararla
-ruidito3 = np.random.normal(0, 3, len(T))
-# sumo el ruido a la señal
-x3 = ruidito3+xt
-# Aplico el filtro
-salida = fmm(x3, 51)
-
-
-# PLOT
-
-plt.style.use('seaborn')
-
-fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, sharex=True)
-
-ax1.plot(T, x3, color='r')
-ax2.plot(T, salida)
-
-ax1.set_title('Sin Filtro de Media Movil')
-ax1.set_ylabel('Amplitude')
-
-
-ax2.set_title('Con Filtro de Media Movil')
-ax2.set_ylabel('Amplitude')
-ax2.set_xlabel('Time[s]')
-
-plt.tight_layout()
-plt.show()
+# fs = 44100
+# f = 10000
+# t = 0.5
+# # Vector tiempo
+# T = np.linspace(0, t, int(fs*t))
+# # Señal x(t)
+# xt = 2+np.sin(2*np.pi*f*T)
+# # Creo la señal del punto 3 para compararla
+# ruidito3 = np.random.normal(0, 3, len(T))
+# # sumo el ruido a la señal
+# x3 = ruidito3+xt
+# # Aplico el filtro
+# salida = fmm(x3, 51)
+#
+#
+# # PLOT
+#
+# plt.style.use('seaborn')
+#
+# fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, sharex=True)
+#
+# ax1.plot(T, x3, color='r')
+# ax2.plot(T, salida)
+#
+# ax1.set_title('Sin Filtro de Media Movil')
+# ax1.set_ylabel('Amplitude')
+#
+#
+# ax2.set_title('Con Filtro de Media Movil')
+# ax2.set_ylabel('Amplitude')
+# ax2.set_xlabel('Time[s]')
+#
+# plt.tight_layout()
+# plt.show()

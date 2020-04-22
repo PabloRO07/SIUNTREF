@@ -1,6 +1,6 @@
 import numpy as np
+import RFMM
 import FMM
-import fmm
 
 fs = 44100
 f = 10000
@@ -15,7 +15,7 @@ ruidito3 = np.random.normal(0, 3, len(T))
 x3 = ruidito3+xt
 # Aplico el filtro
 
-salida1 = fmm(x3, 51)
+salida1 = RFMM(x3, 51)
 salida2 = FMM(x3, 51)
 
 
