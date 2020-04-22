@@ -1,20 +1,40 @@
 import numpy as np
+import fmm
+import FMM
 
-x = [1, 1, 1, 2, 1, 1, 1, 1, 1, 1]
-M = 3
-y = np.zeros(len(x))
-q = 0
-m = M
-# for i in range(len(x)):
-#     y[i] = np.sum(x[q:m])/M
-#     q = q + 1
-#     m = m + 1
-# print(y)
+fs = 44100
+f = 10000
+t = 0.5
+# Vector tiempo
+T = np.linspace(0, t, int(fs*t))
+# Señal x(t)
+xt = 2+np.sin(2*np.pi*f*T)
+# Creo la señal del punto 3 para compararla
+ruidito3 = np.random.normal(0, 3, len(T))
+# sumo el ruido a la señal
+x3 = ruidito3+xt
+# Aplico el filtro
 
-for i in range(len(x)):
-    if i == 0:
-        y[i] = np.sum(x[i:M])
-    elif i+1 < len(x):
-        print(i)
-        y[i] = y[i-1] - x[i-1] + x[i-1+m]
-print(y)
+salida1 = fmm(x3, 51)
+salida2 = FMM(x3, 51)
+
+
+# PLOT
+
+plt.style.use('seaborn')
+
+fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, sharex=True)
+
+ax1.plot(T, salida2, label='No recursivo', color='r')
+ax2.plot(T, salida1, label='Recursivo')
+
+ax1.set_title('Sin Filtro de Media Movil')
+ax1.set_ylabel('Amplitude')
+
+
+ax2.set_title('Con Filtro de Media Movil')
+ax2.set_ylabel('Amplitude')
+ax2.set_xlabel('Time[s]')
+
+plt.tight_layout()
+plt.show()
