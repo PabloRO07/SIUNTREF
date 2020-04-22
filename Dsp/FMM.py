@@ -2,13 +2,13 @@ import numpy as np
 from matplotlib import pyplot as plt 
 
 
-def FMM(x,M):
-    L=len(x)
-    y=np.zeros(L)
-    N=L-M
+def FMM(x, M):
+    L = len(x)
+    y = np.zeros(L)
+    N = L-M
     for i in range(N):
-        y[i]= np.sum(x[i:M+i])/M
-    return(y)
+        y[i] = np.sum(x[i:M+i])/M
+    return y
 
 
 # fs = 44100

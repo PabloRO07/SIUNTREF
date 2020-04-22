@@ -1,6 +1,7 @@
 import numpy as np
-import RFMM
-import FMM
+import RFMM as RF
+import FMM as FM
+from matplotlib import pyplot as plt
 
 fs = 44100
 f = 10000
@@ -15,8 +16,8 @@ ruidito3 = np.random.normal(0, 3, len(T))
 x3 = ruidito3+xt
 # Aplico el filtro
 
-salida1 = RFMM(x3, 51)
-salida2 = FMM(x3, 51)
+salida1 = RF.RFMM(x3, 51)
+salida2 = FM.FMM(x3, 51)
 
 
 # PLOT
