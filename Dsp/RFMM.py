@@ -2,17 +2,23 @@ import numpy as np
 from matplotlib import pyplot as plt 
 
 
-def fmm(x, M):
+def fmm(x, m):
+    """Return a filtered signal with a FMM
+
+    Parameters:
+    x : entry signal
+    m : window
+
+    """
     L = len(x)
     y = np.zeros(L)
-    N = L-M
+    N = L-m
     p = round((M-1)/2)
     q = p+1
 
     for i in range(N):
         if i == 0:
-            y[i] = np.sum(x[i:M+i])/M
-            print("aca entro")
+            y[i] = np.sum(x[i:m+i])/m
         else:
             y[i] = y[i-1] + x[i+p] - x[i-q]
         
@@ -22,11 +28,17 @@ def fmm(x, M):
 fs = 192000
 f = 10000
 t = 0.5
-T = np.linspace(0, t, int(fs*t))    # Vector tiempo
-xt = 2+np.sin(2*np.pi*f*T)        # Señal x(t)
-ruidito3 = np.random.normal(0, 3, len(T)) # Creo la señal del punto 3 para compararla
+# Vector tiempo
+T = np.linspace(0, t, int(fs*t))
+# Señal x(t)
+xt = 2+np.sin(2*np.pi*f*T)
+# Creo la señal del punto 3 para compararla
+ruidito3 = np.random.normal(0, 3, len(T))
+# Normalizo y sumo el ruido a la señal
 x3 = ruidito3+xt / max(ruidito3+xt)
+# Aplico el filtro
 salida = fmm(x3, 51)
+
 
 # PLOT
 
