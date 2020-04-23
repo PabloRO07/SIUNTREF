@@ -14,10 +14,10 @@ f=10000
 xt= 2 + np.sin(2*np.pi*f*t)
 ruidito3 = np.random.normal(0,3,len(t)) #Creo la señal del punto 3 para compararla
 x3= (ruidito3+xt) 
-
-señal_filtrada=FMM_conv(x3,51)
-señal_filtrada2=rfmm.RFMM(x3,51)
-señal_filtrada3=fmm.FMM(x3,51)
+m=round(0.01*len(x3))
+señal_filtrada=FMM_conv(x3,m)
+señal_filtrada2=rfmm.RFMM(x3,m)
+señal_filtrada3=fmm.FMM(x3,m)
 
 
 t2=np.linspace(0,0.5,len(señal_filtrada))
