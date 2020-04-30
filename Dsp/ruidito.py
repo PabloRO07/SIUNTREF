@@ -25,3 +25,12 @@ print(desvio100[0])
 print(desvio1k[0])
 print(desvio10k[0])
 print(desvio100k[0])
+
+columns = ('Muestras', 'Desvio Estandar', 'Varianza')
+rows = ['%d Muestras' % x for x in (5, 10, 100, 1000, 10000, 100000)]
+cell_text = []
+the_table = plt.table(cellText=cell_text,
+                      rowLabels=rows,
+                      rowColours=colors,
+                      colLabels=columns,
+                      loc='bottom')

@@ -1,7 +1,7 @@
 import numpy as np 
 from matplotlib import pyplot as plt 
 
-'Esta funcion calcula el valor medio de una señal'
+'Esta funcion calculad el valor medio de una señal'
 
 
 

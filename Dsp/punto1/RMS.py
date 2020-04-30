@@ -8,3 +8,4 @@ def RMS(xn):
     n=len(xn)
     rms=np.sqrt((1/n)*sum(np.square(abs(xn))))
     return(rms)
+
