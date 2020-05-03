@@ -1,7 +1,7 @@
-import numpy as np 
+import numpy as np
 
 
-def noisegenerator(10, vs, ds, n):
-    for
-        np.random.normal(vm, ds, n)
-
+x = np.array([1, 2, 3])
+y = np.array([1, 2, 3])
+z = x/y
+print(z)
