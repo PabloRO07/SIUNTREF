@@ -1,17 +1,12 @@
 import numpy as np 
 from matplotlib import pyplot as plt 
-import desvio_medio as dm
-import desvio_str as ds
-import RMS as rms
-import valor_medio as vm
-import energy as en
+from punto1 import singenerator as sg
+from punto1 import desvio_str as ds
+from punto1 import valor_medio as vm
+from punto1 import desvio_medio as dm
+from punto1 import RMS as rms
 
-#fs = 44100
-fs=44100
-f = 10000
-t = 0.5
-T = np.linspace(0,t,int(fs*t))    #Vector tiempo
-xt = 2+np.sin(2*np.pi*f*T)        # Señal x(t)
+[xt,T]=sg.singenerator(44100, 10e3, 0.5, 1, 2)
 
 N=1000 #define numero de ruidos a promediar
 matriz_ruido=np.zeros([N,len(T)]) #matriz vacia para almacenar ruido.
@@ -35,5 +30,5 @@ snr_promedio= max(abs(señal_promedio)) / ds.desvio_str(señal_promedio)[0]
 ruidito3 = np.random.normal(0,3,len(T)) #Creo la señal del punto 3 para compararla
 x3= ruidito3+xt / max(ruidito3+xt)
 snr3 = (max(abs(x3)) / ds.desvio_str(x3)[0])
-print(snr_promedio) # SNR señal promediada
-print(snr3) # SNR de la señal del punnto 3
+print("la relación señal ruido es promediando",N,"es:",snr_promedio) # SNR señal promediada
+print("la relación señal ruido sin promediar es:",snr3) # SNR de la señal del punnto 3

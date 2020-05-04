@@ -22,9 +22,12 @@ ruidito3 = np.random.normal(0,3,len(t)) #Creo la señal del punto 3 para compara
 x3= (ruidito3+xt)
 salida=bkack_w(x3,100)
 salida2=rfmm.RFMM(x3,100)
-print(len(salida))
 t2=np.linspace(0,(len(salida)/fs),len(salida))
+
+
+
 fig, axs =plt.subplots(2)
 axs[0].plot(t2,salida)
 axs[1].plot(salida2)
+
 plt.show()
