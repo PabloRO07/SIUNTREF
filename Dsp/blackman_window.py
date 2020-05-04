@@ -1,6 +1,6 @@
 import numpy as np 
 from matplotlib import pyplot as plt 
-import RFMM as rfmm
+from punto5 import frmm as frmm
 
 def bkack_w(xt,m):
     a0 = 0.42
@@ -21,7 +21,7 @@ xt= 2 + np.sin(2*np.pi*f*t)
 ruidito3 = np.random.normal(0,3,len(t)) #Creo la señal del punto 3 para compararla
 x3= (ruidito3+xt)
 salida=bkack_w(x3,100)
-salida2=rfmm.RFMM(x3,100)
+salida2=frmm.frmm(x3,100)
 t2=np.linspace(0,(len(salida)/fs),len(salida))
 
 
