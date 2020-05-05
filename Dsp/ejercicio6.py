@@ -44,14 +44,32 @@ señal_filtrada= señal_filtrada/ abs(max(señal_filtrada))
 señal_filtrada2= señal_filtrada2/ abs(max(señal_filtrada2))
 señal_filtrada3= señal_filtrada3/ abs(max(señal_filtrada3))
 
+muestras_tfmm=(len(señal_filtrada2)-m)
+muestras_tfrmm=(len(señal_filtrada3)-m)
+muestras_tconv=len(x3)+m-1
+t_conv=np.linspace(0,0.5,muestras_tconv)
+tfmm=np.linspace(0,0.5,muestras_tfmm)
+tfrmm=np.linspace(0,0.5,muestras_tfrmm)
 
-t2=np.linspace(0,0.5,len(señal_filtrada))
 
+# Plot
+plt.style.use('seaborn')
 
-fig, axs = plt.subplots(4)
-fig.suptitle('Filtro de media movil')
-axs[0].plot(T,x3)
-axs[1].plot(t2,señal_filtrada)
-axs[2].plot(T,señal_filtrada2)
-axs[3].plot(T,señal_filtrada3)
+fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, sharex=True)
+ax1.plot(t_conv ,señal_filtrada[0:muestras_tconv], color='r')
+ax2.plot(tfmm, señal_filtrada2[0:muestras_tfmm], color='y')
+ax3.plot(tfrmm, señal_filtrada3[0:muestras_tfrmm])
+
+ax1.set_title('Señal senoidal sin filtro')
+ax1.set_ylabel('Amplitud')
+ax1.set_xlabel('Time[s]')
+
+ax2.set_title('Filtada con filtro de media movil')
+ax2.set_ylabel('Amplitud')
+
+ax3.set_title('Filtro de media movil recursivo')
+ax3.set_xlabel('Time[s]')
+ax3.set_ylabel('Amplitud')
+
+plt.tight_layout()
 plt.show()
