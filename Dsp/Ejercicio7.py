@@ -4,7 +4,7 @@ from punto1 import singenerator as sg
 from punto5 import fmm as fmm
 from punto5 import frmm as frmm
 from timeit import default_timer
-from punto6 import fmm_conv as fmmconv
+from punto6 import fmmconv as fmmconv
 from punto7 import blackman as bm
 
 
