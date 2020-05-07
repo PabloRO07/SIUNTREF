@@ -34,7 +34,7 @@ ejecucionfrmm = finfrmm - startfrmm
 #################################
 'Para filtro de media movil .'
 startfmm=default_timer()
-señal_filtrada3 = fmm.fmm(x3,m)
+señal_filtrada3 = fmm.fmm(x3, m)
 finfmm = default_timer()
 ejecucionfmm = finfmm - startfmm
 ####################################
@@ -65,6 +65,7 @@ t_conv = np.linspace(0, 0.5, muestras_tconv)
 tfmm = np.linspace(0, 0.5, muestras_tfmm)
 tfrmm = np.linspace(0, 0.5, muestras_tfrmm)
 tblack = np.linspace(0, 0.5, muestras_tblack)
+
 # Plot
 plt.style.use('seaborn')
 
