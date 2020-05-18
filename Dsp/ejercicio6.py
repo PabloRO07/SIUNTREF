@@ -4,10 +4,7 @@ from punto1 import singenerator as sg
 from punto5 import fmm as fmm
 from punto5 import frmm as frmm
 from timeit import default_timer
-def FMM_conv(x,m):
-    kernel= np.ones(m)/(m+1)
-    salida=np.convolve(x,kernel)
-    return(salida)
+
 
 # Definimos xt como la señal de entrada
 [xt, T] = sg.singenerator(44100, 10000, 0.5, 1, 2)
