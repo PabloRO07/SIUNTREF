@@ -13,7 +13,7 @@ def FMM(x, M):
     return y
 
 
-[xt,T]=sg.singenerator(44100, 10e3, 0.5, 1, 2)
+[xt,T]=sg.singenerator(44100, 10e3, 0.5, 1, 2)s
 
 salida=FMM(xt,2)
 fig, axs = plt.subplots(2)
