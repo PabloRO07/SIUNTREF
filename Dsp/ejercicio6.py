@@ -3,19 +3,18 @@ from matplotlib import pyplot as plt
 from punto1 import singenerator as sg
 from punto5 import fmm as fmm
 from punto5 import frmm as frmm
+from punto6 import fmmconv as fmmconv
 from timeit import default_timer
 
 
 # Definimos xt como la señal de entrada
-[xt, T] = sg.singenerator(44100, 10000, 0.5, 1, 2)
+[x3, T] = sg.singenerator(44100, 10000, 0.5, 1, 2)
 
-ruidito3 = np.random.normal(0,3,len(T)) #Creo la señal del punto 3 para compararla
-x3= (ruidito3+xt) 
 m=round(0.01*len(x3))
 # Aplicamos los filtros y medimos los timepos
 'Para filtro de media movil por convolución'
 startFMM_conv = default_timer()
-señal_filtrada=FMM_conv(x3,m)
+señal_filtrada= fmmconv.fmmconv(x3,m)
 finFMM_conv = default_timer()
 ejecucionFMM_conv = finFMM_conv - startFMM_conv
 

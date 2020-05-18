@@ -9,11 +9,8 @@ from punto7 import blackman as bm
 
 
 # Definimos xt como la señal de entrada
-[xt, t] = sg.singenerator(44100, 10000, 0.5, 1, 2)
+[x3, t] = sg.singenerator(44100, 10000, 0.5, 1, 2)
 
-# Creo la señal del punto 3 para compararla
-ruidito3 = np.random.normal(0, 3, len(t))
-x3 = (ruidito3+xt)
 # ventana del 1%
 m = round(0.01*len(x3))
 
@@ -21,7 +18,7 @@ m = round(0.01*len(x3))
 # Aplicamos los filtros y medimos los timepos
 'Para filtro de media movil por convolución'
 startFMM_conv = default_timer()
-señal_filtrada = fmmconv.fmm_conv(x3, m)
+señal_filtrada = fmmconv.fmmconv(x3, m)
 finFMM_conv = default_timer()
 ejecucionFMM_conv = finFMM_conv - startFMM_conv
 

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def fmm_conv(x, m):
+def fmmconv(x, m):
     """This function aplly al moving average filter using convolution
 
     Parameters:
