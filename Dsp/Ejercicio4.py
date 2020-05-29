@@ -30,5 +30,5 @@ snr_promedio= max(abs(señal_promedio)) / ds.desvio_str(señal_promedio)[0]
 ruidito3 = np.random.normal(0,3,len(T)) #Creo la señal del punto 3 para compararla
 x3= ruidito3+xt / max(ruidito3+xt)
 snr3 = (max(abs(x3)) / ds.desvio_str(x3)[0])
-print("la relación señal ruido es promediando",N,"es:",snr_promedio) # SNR señal promediada
+print("la relación señal ruido  promediando",N,"es:",snr_promedio) # SNR señal promediada
 print("la relación señal ruido sin promediar es:",snr3) # SNR de la señal del punnto 3

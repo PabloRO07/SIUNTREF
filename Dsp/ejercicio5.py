@@ -23,12 +23,12 @@ from punto1 import RMS as rms
 # Aplicamos los filtros y medimos lso timepos
 'Para filtro de media movil'
 startfmm = default_timer()
-filtro = fmm.fmm(xt, 2)
+filtro = fmm.fmm(xt, 1)
 finfmm = default_timer()
 ejecucionfmm = finfmm - startfmm
 'Para filtro recursivo de de media movil'
 startfrmm = default_timer()
-recursive = frmm.frmm(xt, 2)
+recursive = frmm.frmm(xt, 1)
 finfrmm = default_timer()
 ejecucionfrmm = finfrmm - startfrmm
 

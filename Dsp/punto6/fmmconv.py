@@ -8,6 +8,6 @@ def fmmconv(x, m):
     x = Entry signal
     m = Window Size
     """
-    kernel = np.ones(m)/(m+1)
+    kernel = np.ones(m)/m
     salida = np.convolve(x, kernel)
     return salida
