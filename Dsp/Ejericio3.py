@@ -49,11 +49,9 @@ ax3.plot(t, x3)
 
 ax1.set_title('X1')
 ax1.set_ylabel('Amplitude')
-ax1.set_xlabel('Time[s]')
 
 ax2.set_title('X2')
 ax2.set_ylabel('Amplitude')
-ax2.set_xlabel('Time[s]')
 
 ax3.set_title('X3')
 ax3.set_ylabel('Amplitude')
