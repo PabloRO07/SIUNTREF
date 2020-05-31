@@ -43,7 +43,7 @@ señal_filtrada3= señal_filtrada3/ abs(max(señal_filtrada3))
 
 muestras_tfmm=(len(señal_filtrada2))
 muestras_tfrmm=(len(señal_filtrada3))
-muestras_tconv=len(x3)+m-1
+muestras_tconv=len(señal_filtrada)
 t_conv=np.linspace(0,0.5,muestras_tconv)
 tfmm=np.linspace(0,0.5,muestras_tfmm)
 tfrmm=np.linspace(0,0.5,muestras_tfrmm)

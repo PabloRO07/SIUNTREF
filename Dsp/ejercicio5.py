@@ -17,18 +17,18 @@ from punto1 import RMS as rms
         Valor de continua/Centrado : 2
 """
 # Definimos xt como la señal de entrada
-[xt, T] = sg.singenerator(44100, 10000, 0.5, 1, 0)
+[xt, T] = sg.singenerator(44100, 10000, 0.5, 1, 2)
 
 
 # Aplicamos los filtros y medimos los timepos
 'Para filtro de media movil'
 startfmm = default_timer()
-filtro = fmm.fmm(xt, 2)
+filtro = fmm.fmm(xt, 1)
 finfmm = default_timer()
 ejecucionfmm = finfmm - startfmm
 'Para filtro recursivo de de media movil'
 startfrmm = default_timer()
-recursive = frmm.frmm(xt, 2)
+recursive = frmm.frmm(xt, 1)
 finfrmm = default_timer()
 ejecucionfrmm = finfrmm - startfrmm
 
