@@ -21,10 +21,9 @@ desvio100k = ds.desvio_str(ruidito100k)
 
 "Vector con los devios"
 des = np.array([desvio5, desvio10, desvio100, desvio1k, desvio10k, desvio100k])
-print(des)
+
 porc = np.absolute(1-des)
 porc = (porc)*100
-print(porc)
 
 des = np.array([(desvio5[0],porc[0,0]), (desvio10[0],porc[1,0]), (desvio100[0],porc[2,0]), (desvio1k[0],porc[3,0]), (desvio10k[0],porc[4,0]), (desvio100k[0],porc[5,0])])
 
@@ -36,8 +35,8 @@ fig.patch.set_visible(False)
 ax.axis('off')
 ax.axis('tight')
 
-colLabels = ("Desvio Standard","Diferencia %")
-rowLabels = ("5", "10", "100", "1k", "10k", "100k")
+colLabels = (["Desvio Standard","Diferencia %"])
+rowLabels = (["N=5", "N=10", "N=100", "N=1k", "N=10k", "N=100k"])
 data = des
 ax.table(cellText=data, colLabels=colLabels, loc='center', rowLabels=rowLabels)
 fig.tight_layout()

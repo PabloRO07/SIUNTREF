@@ -24,9 +24,9 @@ x3 = (ruidito3+xt) / abs(max(ruidito3+xt))
 snr1 = (max(abs(x1)) / ds.desvio_str(x1)[0])
 snr2 = (max(abs(x2)) / ds.desvio_str(x2)[0])
 snr3 = (max(abs(x3)) / ds.desvio_str(x3)[0])
-print(snr1)
-print(snr2)
-print(snr3)
+print("la relación SNR de x01 es:",snr1)
+print("la relación SNR de x1 es:",snr2)
+print("la relación SNR de x3 es:",snr3)
 
 # PLOT
 plt.style.use('seaborn')

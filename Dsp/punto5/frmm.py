@@ -16,7 +16,7 @@ def frmm(x, m):
 
     for i in range(n):
         if i == 0:
-            y[i] = np.sum(x[i:(m+1)+i])/(m+1)
+            y[i] = np.sum(x[i:((m+1)+i)])/(m+1)
         else:
             y[i] = y[i-1] + (x[i+(m+1)-1] - x[i-1])/(m+1)
         
