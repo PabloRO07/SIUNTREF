@@ -26,9 +26,9 @@ t_convc1 = np.linspace(0, (len(xn) / fs), len(xn))
 t_convc2 = np.linspace(0, (len(xn2) / fs), len(xn2))
 
 # Creacion wav
-sf.write('Convolucion.wav', conv_lineal, fs)
-sf.write('conv_circular1.wav', yn1, fs)
-sf.write('conv_circular2.wav', yn2, fs)
+sf.write('E8_Convolucion.wav', conv_lineal, fs)
+sf.write('E8_conv_circular_zeroP.wav', yn1, fs)
+sf.write('E8_conv_circular=lineal_zeroP.wav', yn2, fs)
 
 # PLOT
 plt.style.use('seaborn')
