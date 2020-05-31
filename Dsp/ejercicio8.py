@@ -40,7 +40,7 @@ ax3.plot(t_convc2, yn2)
 
 ax1.set_title('Convolución Midi69*RIR')
 ax1.set_ylabel('Amplitud')
-plt.axvline(x=0.22058956)
+
 
 ax2.set_title('Zero pading a xn')
 ax2.set_ylabel('Amplitud')
