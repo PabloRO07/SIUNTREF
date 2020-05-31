@@ -33,14 +33,14 @@ finfrmm = default_timer()
 ejecucionfrmm = finfrmm - startfrmm
 
 
-print('El tiempo de ejecucion para el filto de media movil fue: ', ejecucionfmm, 'Segundos')
-print('El tiempo de ejecucion para el filto Recursivo de media movil fue: ', ejecucionfrmm, 'Segundos')
+print('El tiempo de ejecucion para el filtro de media movil fue de: ', ejecucionfmm, 'Segundos')
+print('El tiempo de ejecucion para el filtro Recursivo de media movil fue de: ', ejecucionfrmm, 'Segundos')
 
 
 # Plot
 plt.style.use('seaborn')
 
-fig, (ax1, ax2, ax3 ) = plt.subplots(nrows=3, ncols=1, sharex=True)
+fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, sharex=True)
 ax1.plot(T, xt, color='r')
 ax2.plot(T, filtro, color='y')
 ax3.plot(T, recursive)
@@ -48,7 +48,6 @@ ax3.plot(T, recursive)
 
 ax1.set_title('Señal senoidal sin filtro')
 ax1.set_ylabel('Amplitud')
-ax1.set_xlabel('Time[s]')
 
 ax2.set_title('Filtada con filtro de media movil')
 ax2.set_ylabel('Amplitud')
@@ -56,7 +55,6 @@ ax2.set_ylabel('Amplitud')
 ax3.set_title('Filtro de media movil recursivo')
 ax3.set_xlabel('Time[s]')
 ax3.set_ylabel('Amplitud')
-
 
 
 plt.tight_layout()
