@@ -30,7 +30,6 @@ ax1.set_title('|H(jw)| Ventana Rectangular ')
 ax1.set_ylabel('Amplitud')
 ax1.set_xlabel('rad/[Hz]')
 
-plt.hlines(0, (10000*np.pi)/22050)
 
 plt.tight_layout()
 plt.show()
