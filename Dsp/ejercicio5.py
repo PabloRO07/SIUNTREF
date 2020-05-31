@@ -12,7 +12,7 @@ from punto1 import RMS as rms
     Para una señal de senoidal con los siguiente parametros
         Frecuencia de muestreo:44100
         Frecuencia de la señal:10kHz
-        Duracion de la señalÑ 0.5 seg
+        Duracion de la señal 0.5 seg
         Amplitud: 1
         Valor de continua/Centrado : 2
 """
@@ -20,7 +20,7 @@ from punto1 import RMS as rms
 [xt, T] = sg.singenerator(44100, 10000, 0.5, 1, 0)
 
 
-# Aplicamos los filtros y medimos lso timepos
+# Aplicamos los filtros y medimos los timepos
 'Para filtro de media movil'
 startfmm = default_timer()
 filtro = fmm.fmm(xt, 2)

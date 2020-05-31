@@ -5,12 +5,12 @@ from punto1 import singenerator as sg
 
 def fmm(x, m):
     """
-    This funcion calculate de  moving average filter
+    This function calculate de  moving average filter
      for an entry signal
 
      Parameters:
      x = Entry signal
-     m = size of window
+     m = Size of window
      """
 
     long = len(x)
