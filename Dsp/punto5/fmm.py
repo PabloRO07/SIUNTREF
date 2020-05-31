@@ -17,7 +17,7 @@ def fmm(x, m):
     y = np.zeros(long)
     n = long-m
     for i in range(n):
-        y[i] = np.sum(x[i:(m+1+i)])/(m+1)
+        y[i] = np.sum(x[i:((m+1)+i)])/(m+1)
     return y
 
 
