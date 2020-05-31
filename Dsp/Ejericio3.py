@@ -37,20 +37,19 @@ x3 = (ruidito3+xt) / abs(max(ruidito3+xt))
 # PLOT
 plt.style.use('seaborn')
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, sharex=True)
+ax1.plot(t, x1, color='black')
+ax2.plot(t, x2, color='blue')
+ax3.plot(t, x3,color='orange')
 
-ax1.plot(t, x1, color='r')
-ax2.plot(t, x2, color='y')
-ax3.plot(t, x3)
+ax1.set_title(r'$X0.1$',fontsize=12)
+ax1.set_ylabel(r'$Amplitude$',fontsize=10)
 
-ax1.set_title('X0.1')
-ax1.set_ylabel('Amplitude')
 
-ax2.set_title('X1')
-ax2.set_ylabel('Amplitude')
+ax2.set_title(r'$X1$',fontsize=12)
+ax2.set_ylabel(r'$Amplitude$',fontsize=10)
 
-ax3.set_title('X3')
-ax3.set_ylabel('Amplitude')
-ax3.set_xlabel('Time[s]')
-
+ax3.set_title(r'$X3$',fontsize=12)
+ax3.set_ylabel(r'$Amplitude$',fontsize=10)
+ax3.set_xlabel(r'$Time[s]$',fontsize=10)
 plt.tight_layout()
 plt.show()

@@ -52,24 +52,21 @@ tfrmm=np.linspace(0,0.5,muestras_tfrmm)
 plt.style.use('seaborn')
 
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, sharex=True)
-ax1.plot(t_conv ,señal_filtrada, color='r')
-ax2.plot(tfmm, señal_filtrada2, color='y')
-ax3.plot(tfrmm, señal_filtrada3)
+ax1.plot(t_conv ,señal_filtrada, color='black')
+ax2.plot(tfmm, señal_filtrada2, color='b')
+ax3.plot(tfrmm, señal_filtrada3,color='orange')
 
-ax1.set_title('Filtrado por convolución')
-ax1.set_ylabel('Amplitud')
-ax1.set_xlabel('Time[s]')
+ax1.set_title(r'$Filtrado \ por \ convolución$',fontsize=12)
+ax1.set_ylabel(r'$Amplitud$',fontsize=10)
 
-ax2.set_title('Filtada con filtro de media movil recursivo')
-ax2.set_ylabel('Amplitud')
 
-ax3.set_title('Filtro de media movil')
-ax3.set_xlabel('Time[s]')
-ax3.set_ylabel('Amplitud')
+ax2.set_title(r'$Filtro \ de \ media \ movil$',fontsize=12)
+ax2.set_ylabel(r'$Amplitud$',fontsize=10)
+
+
+ax3.set_title(r'$Filtada \ con \ filtro \ de \ media \ movil \ recursivo$',fontsize=12)
+ax3.set_ylabel(r'$Amplitud$',fontsize=10)
+ax3.set_xlabel(r'$Time[s]$',fontsize=10)
 
 plt.tight_layout()
 plt.show()
-
-#[m:muestras_tconv-m] ESTO ES POR SI QUIERO RECORTAR EL VECTOR POR LOS ZEROS que se forman al promediar las muestras d la señal.
-#[0:muestras_tfmm]
-#[0:muestras_tfrmm] PREGUNTAR AL PROFE SI EL PLOT TA BIEN O SI LO PUEDO DEJAR RECORTADO + lindo.

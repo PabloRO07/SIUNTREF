@@ -22,13 +22,13 @@ w=np.linspace(0,np.pi,22050)
 plt.style.use('seaborn')
 
 fig,ax1 = plt.subplots(nrows=1, ncols=1, sharex=True)
-plt.plot(w,ir_bkw_response[0:round(fs/2)], color='r')
-plt.plot(w,ir_rw_response[0:round(fs/2)] ,color='y')
+plt.plot(w,ir_bkw_response[0:round(fs/2)], color='black',label=(r'$|H_b(jw)|$'))
+plt.plot(w,ir_rw_response[0:round(fs/2)] ,color='b',label=(r'$|H_r(jw)|$'))
 
-ax1.set_title('|H(jw)| Blackman y rectangular ')
-ax1.set_ylabel('Amplitud [dB]')
-ax1.set_xlabel('rad/[Hz]')
+ax1.set_title(r'$|H(jw)| \ Blackman \ y \ rectangular $',fontsize=16)
+ax1.set_ylabel(r'$Amplitud \ [dB]$',fontsize=14)
+ax1.set_xlabel(r'$ \frac{rad}{Hz}$',fontsize=16)
 
-
+plt.legend(fontsize=14)
 plt.tight_layout()
 plt.show()

@@ -34,20 +34,20 @@ sf.write('conv_circular2.wav', yn2, fs)
 plt.style.use('seaborn')
 
 fig, (ax1, ax2, ax3) = plt.subplots(nrows=3, ncols=1, sharex=True)
-ax1.plot(t_lineal, conv_lineal, color='r')
-ax2.plot(t_convc1, yn1, color='y')
-ax3.plot(t_convc2, yn2)
+ax1.plot(t_lineal, conv_lineal, color='black')
+ax2.plot(t_convc1, yn1, color='b')
+ax3.plot(t_convc2, yn2,color='orange')
 
-ax1.set_title('Convolución Midi69*RIR')
-ax1.set_ylabel('Amplitud')
+ax1.set_title(r'$Convolucion \ h[n] \ast x[n]$',fontsize=16)
+ax1.set_ylabel(r'$Amplitud$')
 
 
-ax2.set_title('Zero pading a xn')
-ax2.set_ylabel('Amplitud')
+ax2.set_title(r'$Convolucion \ h_p[n] \otimes  x[n]$',fontsize=16)
+ax2.set_ylabel(r'$Amplitud$',fontsize=14)
 
-ax3.set_title('Convolución Circular  Midi69*RIR')
-ax3.set_ylabel('Amplitud')
-ax3.set_xlabel('Time[s]')
+ax3.set_title(r'$Convolucion \ h_p[n] \otimes  x_p[n]$',fontsize=16)
+ax3.set_ylabel(r'$Amplitud$',fontsize=14)
+ax3.set_xlabel(r'$Time[s]$',fontsize=14)
 
 plt.tight_layout()
 plt.show()
