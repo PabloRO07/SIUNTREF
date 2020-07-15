@@ -14,7 +14,7 @@ ir = fmmconv.fmmconv(impulse, m)
 # Funcion de transferencia
 ir_frec = sc.fft.fft(ir)
 frec_response = abs(ir_frec)
-print(len(frec_response))
+
 print("con una ventana de", m, " muestras, para el valor de 10khz", "que en proporcion de pi es", ((10e3*np.pi)/(fs/2)),
       ",la magnitud del filtro es de ", frec_response[10000], "o", 20*np.log10(frec_response[10000]), "dB")
 
