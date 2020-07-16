@@ -9,7 +9,7 @@ import random
 
 fs=44100
 N=2*fs
-p= round(fs // 100)
+p= fs // 100
 wavetable = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # generador de ruido (1;-1)
 wavetable_drum = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # generador de ruido (1;-1)
 v_anterior=0
