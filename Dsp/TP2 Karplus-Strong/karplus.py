@@ -27,23 +27,27 @@ def Karplus_fb(signal,d,y,N):
     echo=(y/2)*d1
     synthesis2=np.zeros(len(echo))
     for i in range(N): 
-        synthesis2=(1/(i*0.5+1))*echo+synthesis2
-        echo=np.hstack((np.zeros(round((d*i)/(1+0.1*i)),synthesis2)))
+        synthesis2=(1/(1.5))*echo+synthesis2
+        echo=np.hstack((np.zeros(round(d)),synthesis2))
         l3=len(echo)
-        signal=np.hstack((signal,np.zeros((l3-len(signal)))))
+        synthesis2=np.hstack((synthesis2,np.zeros((l3-len(synthesis2)))))
+        synthesis2=echo+synthesis2
+        synthesis2=np.hstack((synthesis2,np.zeros((l3-len(synthesis2)))))
+        echo=(1.5)*np.hstack((np.zeros(round(d*N/(i+1))),synthesis2))
+        l3=len(echo)
         synthesis2=np.hstack((synthesis2,np.zeros((l3-len(synthesis2)))))
         l2=len(synthesis2)
     
     
     return synthesis2
-
+#(d*i)/(1+0.1*i)
 fs=44100
 noise = ns.noise(1,1)
 audio,fs = sf.read('Midi69.wav')
-s=0.5
+s=0.3
 t_ret=round(s*fs)
 synt = Karplus(audio,t_ret,1)
-synt2 = Karplus_fb(audio,t_ret,1,50)
+synt2 = Karplus_fb(audio,t_ret,1,4)
 sf.write('prueba_4echo.wav',synt,fs)
 sf.write('prueba_fecho.wav',synt2,fs)
 t=np.linspace(0,(len(synt)/fs),len(synt))
