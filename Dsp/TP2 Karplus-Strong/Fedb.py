@@ -2,7 +2,7 @@ import numpy as np
 import soundfile as sf
 
 
-def fdb(xn, a, d, af, n):
+def fdb(xn, a, d, af, n, fs):
     """Entry Parameters
     xn = Signal Entry
     a = Amplitude delayed signal
@@ -10,6 +10,7 @@ def fdb(xn, a, d, af, n):
     af = Amplitude feedback signal
     n = Quantity of delays
     """
+    d = round(0.5 * fs)
     l = len(xn)
     for i in range(n):
         if i == 0:
@@ -30,12 +31,12 @@ def fdb(xn, a, d, af, n):
 fs = 44100
 xn, fs = sf.read('Midi69.wav')
 'cantidad de repeticiones'
-n = 10
+n = 1
 'Muestas atrazadas'
 d = round(0.5 * fs)
 'Amplitud de los delays'
 a = 0.5
 'Amplitud de la realimentacion'
 af = 0.5
-synth = fdb(xn, a, d, af, n)
+synth = fdb(xn, a, d, af, n, fs)
 sf.write('echo.wav', synth, fs)

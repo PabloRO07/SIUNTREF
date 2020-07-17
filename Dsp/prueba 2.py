@@ -1,6 +1,8 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-fs = 44100
-t = np.linspace(0, fs)
-print(1%1)
+n = 1000
+t = np.linspace(0, 1, n)
+
+triangle = abs
+print(2%300)
