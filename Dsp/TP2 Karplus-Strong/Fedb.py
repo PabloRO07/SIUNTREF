@@ -4,6 +4,7 @@ import soundfile as sf
 
 def fdb(xn, a, d, af, n, fs):
     """Entry Parameters
+    This code recive a entry signal 
     xn = Signal Entry
     a = Amplitude delayed signal
     d = Delay time
