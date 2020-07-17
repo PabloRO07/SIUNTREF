@@ -23,7 +23,7 @@ def delay4(signal,d,y):
 
 fs=44100
 audio,fs = sf.read('Midi69.wav')
-s=0.3
+s=4/44100
 t_ret=round(s*fs)
 impulse=np.zeros(44100)
 impulse[0]=1
@@ -34,5 +34,5 @@ transfer=20*np.log10(abs(transfer))
 sf.write('prueba_4echo.wav',synt,fs)
 
 
-plt.plot(t,synt)
+plt.plot(transfer)
 plt.show()

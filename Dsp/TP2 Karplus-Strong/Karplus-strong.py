@@ -7,9 +7,9 @@ import random
 
 ### diseño de Wavetable ####
 
-fs=44100
+fs=8000
 N=2*fs
-p= fs // 100
+p= fs // 20
 wavetable = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # generador de ruido (1;-1)
 wavetable_drum = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # generador de ruido (1;-1)
 v_anterior=0
@@ -20,7 +20,6 @@ a=0
 
 for i in range(N):
     wavetable[a]= 0.5* (wavetable[a]+v_anterior)
-    
     karplus[i]=wavetable[a]
     v_anterior=karplus[i]
     a+=1
