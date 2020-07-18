@@ -67,7 +67,7 @@ plt.show()
 #Sistema 2 Feedback delay
 
 d=4 # Retraso en muestras , para gráfico de respuesta en frecuencia y fase.
-s= 0.05 # tiempo en segundos , para señal de prueba 
+s= 0.5 # tiempo en segundos , para señal de prueba 
 d2=round(s*44100) # retraso para audio de prueba
 alfa=(0.5) # amplitud de los echos
 af = 0.5 # amplitud del feedback
