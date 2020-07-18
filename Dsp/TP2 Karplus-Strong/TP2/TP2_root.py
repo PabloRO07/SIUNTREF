@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import soundfile as sf 
 import scipy as sc 
 import delay4 as dl4
-import Feedb as fdb
+import fdb as fdb
 
 # Este es el Scrypt raiz de los 4 sistemas propuestos por el trabajo.
 
@@ -65,7 +65,7 @@ plt.show()
 
 
 #Sistema 2 Feedback delay
-
+fs=44100
 d=4 # Retraso en muestras , para gráfico de respuesta en frecuencia y fase.
 s= 0.5 # tiempo en segundos , para señal de prueba 
 d2=round(s*44100) # retraso para audio de prueba
@@ -73,7 +73,7 @@ alfa=(0.5) # amplitud de los echos
 af = 0.5 # amplitud del feedback
 n=10 #numero de repeticiones del feedback
 
-synth = fdb.feedb(audio, alfa, d2, af, n)
+synth = fdb.fdb(audio, alfa, d2, af, n)
 
 sf.write('Sistema_2.wav', synth, fs)
 
@@ -82,7 +82,7 @@ sf.write('Sistema_2.wav', synth, fs)
 n2=1 # para el analisis del sistema
 impulse=np.zeros(fs-1) # creo vector de ceros para el impulso
 impulse[0]=1
-synth2 = fdb.feedb(impulse, alfa, d, af, n2) # respuesta al impulso del sistema
+synth2 = fdb.fdb(impulse, alfa, d, af, n2) # respuesta al impulso del sistema
 transfer2=sc.fft.fft(synth2) #FFT de la respuesta
 imag2=np.imag(transfer2)
 real2=np.real(transfer2)
