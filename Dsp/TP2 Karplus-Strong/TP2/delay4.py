@@ -2,10 +2,11 @@ import numpy as np
 
 # Delay 
 def delay4(signal,d,y):
-    """ Esta función genera una cantidad finita de echos a una señal, tiene 3 variables de entrada y solo una variable de salida.
-    signal: señal de entrada
-    d: retraso en muestras
-    y: amplitud de los delay
+    """Entry Parameters
+    This function recive a entry signal and creates "n" feedbacks
+    signal = Signal Entry
+    d = Delay time
+    y = amplitud  of delays
     """
     l=len(signal) 
     d1= (y)*np.hstack((np.zeros(d),signal))  
