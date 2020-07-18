@@ -1,6 +1,8 @@
 import numpy as np
+import soundfile as sf
 
-def feedb(xn, a, d, af, n):
+
+def fdb(xn, a, d, af, n, fs):
     """Entry Parameters
     This function recive a entry signal and creates "n" feedbacks
     xn = Signal Entry
@@ -22,7 +24,19 @@ def feedb(xn, a, d, af, n):
             delay2 = af*(np.hstack((np.zeros(d), delay)))
             delay = np.hstack((delay, np.zeros(d)))
             fdb = np.hstack((fdb, np.zeros(2*d)))
-            xn = np.hstack((xn, np.zeros(2*d)))
-            fdb = xn+fdb + delay + delay2
-            fdb = fdb/abs(max(fdb))
+            fdb = fdb + delay + delay2
     return fdb
+
+
+fs = 44100
+xn, fs = sf.read('Midi69.wav')
+'cantidad de repeticiones'
+n = 1
+'Muestas atrazadas'
+d = round(4 * fs)
+'Amplitud de los delays'
+a = 0.5
+'Amplitud de la realimentacion'
+af = 0.5
+synth = fdb(xn, a, d, af, n, fs)
+sf.write('echo.wav', synth, fs)
