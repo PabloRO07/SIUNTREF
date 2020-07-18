@@ -3,13 +3,14 @@ import soundfile as sf
 
 
 def fdb(xn, a, d, af, n):
-    """Entry Parameters
-    This function recive a entry signal and creates "n" feedbacks
-    xn = Signal Entry
-    a = Amplitude delayed signal
-    d = Delay time
-    af = Amplitude feedback signal
-    n = Quantity of feedbacks
+    """
+
+    :param xn: Signal Entry
+    :param a: Amplitude delayed signal
+    :param d: Delay time
+    :param af: Amplitude feedback signal
+    :param n: Quantity of feedbacks
+    :return: Entry signal with n delay amplified a,af times
     """
     l = len(xn)
     for i in range(n):
@@ -25,6 +26,6 @@ def fdb(xn, a, d, af, n):
             delay = np.hstack((delay, np.zeros(d)))
             fdb = np.hstack((fdb, np.zeros(2*d)))
             xn = np.hstack((xn, np.zeros(2*d)))
-            fdb = xn+ fdb + delay + delay2
-            fdb=fdb/abs(max(fdb))
+            fdb = xn + fdb + delay + delay2
+            fdb = fdb/abs(max(fdb))
     return fdb
