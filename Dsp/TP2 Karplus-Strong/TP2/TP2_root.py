@@ -4,6 +4,7 @@ import soundfile as sf
 import scipy as sc 
 import delay4 as dl4
 import fdb as fdb
+import ks as ks
 
 # Este es el Scrypt raiz de los 4 sistemas propuestos por el trabajo.
 
@@ -122,3 +123,15 @@ plt.legend(fontsize=12)
 plt.tight_layout()
 plt.show()
 
+
+### Analisis del sistema 3 ###
+fs=8000
+f=50
+ks=ks.ks(f,fs,3,1)
+transfer=sc.fft.fft(ks)
+transfer=abs(transfer)
+transfer=transfer/abs(max(transfer))
+w=np.linspace(0,(fs/2),round(len(transfer)/2))
+plt.plot(w,transfer[0:round((fs*3)/2)])
+plt.show()
+sf.write('Sistema_5.wav', ks,fs)
