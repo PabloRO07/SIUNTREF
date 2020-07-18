@@ -6,7 +6,7 @@ import delay4 as dl4
 import echo_infinito as ec
 import ks as ks
 
-#This script binds the fourth systems proposed to analyze
+# This script binds the fourth systems proposed to analyze
 
 
 # System 1 Finite Echoes
@@ -66,7 +66,6 @@ ax3.set_xlabel(r'$Frecuencia [Hz]$', fontsize=14)
 ax4.set_title(r'$Señal \ de \ salida \ y_1[n]  $', fontsize=14)
 ax4.set_ylabel(r'$Amplitud$', fontsize=14)
 ax4.set_xlabel(r'$Tiempo [s]$', fontsize=14)
-
 
 plt.legend(fontsize=12)
 plt.tight_layout()
@@ -166,11 +165,11 @@ ax2.plot(w1, transfer1[0:round((fs*3)/2)], color='black', label=r'$Fs=44100$')
 
 
 ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14)
-ax1.set_ylabel(r'$Amplitud$', fontsize=14)
+ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 
 
 ax2.set_title(r'$|H_2(e^{jw})|$', fontsize=14)
-ax2.set_ylabel(r'$Amplitud$', fontsize=14)
+ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 
 
 plt.legend(fontsize=12)
@@ -208,11 +207,11 @@ ax2.plot(w3, transfer3[0:round((fs*3)/2)], color='black', label=r'$Fs=2000$')
 
 
 ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14)
-ax1.set_ylabel(r'$Amplitud$', fontsize=14)
+ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 
 
 ax2.set_title(r'$ |H_2(e^{jw})| $', fontsize=14)
-ax2.set_ylabel(r'$Amplitud$', fontsize=14)
+ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 
 
 plt.legend(fontsize=12)
