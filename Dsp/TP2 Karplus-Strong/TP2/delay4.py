@@ -3,7 +3,7 @@ import numpy as np
 # Delay 
 def delay4(signal,d,y):
     """Entry Parameters
-    This function recive a entry signal and generate 4 delayed signals, amplifieds "y" times
+    This function recive a entry signal and generate 4 delayed signals, amplified "y" times
     signal = Signal Entry
     d = Delay time
     y = amplitude  of delays
