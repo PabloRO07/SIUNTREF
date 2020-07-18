@@ -7,13 +7,13 @@ def ks(f, fs, n, b):
     :param fs: Sampling frequency
     :param n: Long time in second of the output signal
     :param b: Probabilistic parameter b>9 for string synthesizing  and 0>=b<9 for drum synthesizing
-    :return: Signal of "f" frecuency, drum or string, of time "n"
+    :return: Signal of "f" frequency, drum or string, of time "n"
     """
     n = n*fs
     b = int(b*10)
     p = fs // f
-# Diseño de Wavetable #
-    wavetable = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # generador de ruido (1;-1)
+# Wave Table Desing #
+    wavetable = (2 * np.random.randint(0, 2, p) - 1).astype(np.float)  # Noise Generator (1;-1)
 
     v_anterior = 0
     karplus = np.zeros(n)
