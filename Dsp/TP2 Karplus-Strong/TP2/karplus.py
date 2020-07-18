@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def ks(f, fs, n, b):
+def karplus(f, fs, n, b):
     """
     :param f: Frecuency to synthesize
     :param fs: Sampling frequency
