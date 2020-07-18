@@ -24,11 +24,11 @@ w = np.linspace(0, np.pi, round(fs/2))
 plt.style.use('seaborn')
 
 fig, ax1 = plt.subplots(nrows=1, ncols=1, sharex=True)
-plt.plot(w, frec_response[0:round(fs/2)], color='b',label=(r'$|H(jw)| \ M=1$'))
+plt.plot(w, frec_response[0:round(fs/2)], color='b', label=(r'$|H(jw)| \$', fs, r'$M=1$'))
 
-ax1.set_title(r'$|H(jw)| \ Ventana \ Rectangular $',fontsize=16)
-ax1.set_ylabel(r'$Amplitud$',fontsize=14)
-ax1.set_xlabel(r'$ \frac{rad}{Hz}$',fontsize=16)
+ax1.set_title(r'$|H(jw)| \ Ventana \ Rectangular $', fontsize=16)
+ax1.set_ylabel(r'$Amplitud$', fontsize=14)
+ax1.set_xlabel(r'$ \frac{rad}{Hz}$', fontsize=16)
 
 x_coord = [0, 10000*np.pi/22050]
 y_coord = [frec_response[10000], frec_response[10000]]

@@ -4,11 +4,12 @@ import soundfile as sf
 
 def fdb(xn, a, d, af, n, fs):
     """Entry Parameters
+    This function recive a entry signal and creates "n" feedbacks
     xn = Signal Entry
     a = Amplitude delayed signal
     d = Delay time
     af = Amplitude feedback signal
-    n = Quantity of delays
+    n = Quantity of feedbacks
     """
     d = round(0.5 * fs)
     l = len(xn)
