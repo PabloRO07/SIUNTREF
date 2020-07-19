@@ -40,7 +40,7 @@ def karplus(f, fs, n, b):
 
 for i in range(4):
     fs = np.array([44100,96000,44100,96000])
-    f = np.array([440,440,200,200])
+    f = np.array([100,100,200,200])
     n = 1
     b= np.array([1,1,0.5,0.5])
     sistema3_wav = (['string_440_44.1khz.wav','string_440_96khz.wav','snare_44.1khz.wav','snare_96khz.wav'])
