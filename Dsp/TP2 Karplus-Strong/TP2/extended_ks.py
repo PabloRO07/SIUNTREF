@@ -2,7 +2,8 @@ import numpy as np
 import soundfile as sf
 import karplus as ks
 
-def extended_ks(f, fs, n, b,R):
+
+def extended_ks(f, fs, n, b, R):
     """
     :param f: Frecuency to synthesize
     :param fs: Sampling frequency
@@ -19,15 +20,12 @@ def extended_ks(f, fs, n, b,R):
     karplus = np.zeros(n)
     
 # Dinamic Filter   
-    y=0
-    l=len(wavetable)
+    y = 0
+    l = len(wavetable)
     a = 0
     for i in range(l):
-        wavetable[i]= (1-R)*wavetable[i] +R*y
-        y=wavetable[i]
-        
-    
-    
+        wavetable[i] = (1-R)*wavetable[i] + R*y
+        y = wavetable[i]
 
     for i in range(n):
         h = np.random.randint(0, 9)
@@ -44,7 +42,7 @@ def extended_ks(f, fs, n, b,R):
     return karplus
 
 
-karplus=extended_ks(50, 44100, 1, 1,0.9)
-sf.write('prueba_dinamic_filter2.wav',karplus,44100)
-karplus2=ks.karplus(50, 44100, 1, 1)
-sf.write('prueba_dinamic_filter.wav',karplus2,44100)
+karplus = extended_ks(50, 44100, 1, 1, 0.9)
+sf.write('prueba_dinamic_filter2.wav', karplus, 44100)
+karplus2 = ks.karplus(50, 44100, 1, 1)
+sf.write('prueba_dinamic_filter.wav', karplus2, 44100)
