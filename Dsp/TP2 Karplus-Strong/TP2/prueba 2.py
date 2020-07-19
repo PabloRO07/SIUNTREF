@@ -17,6 +17,10 @@ transfer = abs(sc.fft.fft(ks_0))
 transfer = transfer / abs(max(transfer))
 w = np.linspace(0, (fs / 2), round(len(transfer) / 2))
 # sf.write('pruebapolC=1.wav', ks_0, fs)
+f = 50
+fs = 44100
+n = 1
+b = 1
 c = 1
 ks_1 = ks.karplus(f, fs, n, b, c)
 transfer1 = abs(sc.fft.fft(ks_1))
@@ -42,13 +46,13 @@ transfer1 = transfer / abs(max(transfer1))
 #
 plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) = \
-    plt.subplots(nrows=2, ncols=2, sharex='col', figsize=(16, 10))
+    plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
 fig.suptitle(r'$ System\ 1\ Analysis\ 1\ Finite\ Echoes  $',
              fontsize=18)
-ax1.plot(frequency_response[0:round(fs/2)],
+ax1.plot(transfer[0:round(fs/2)],
          color='b', label=r'$D=4$')
-# ax2.plot(frequency_response2[0:round(fs/2)],
-#          color='black')
+ax2.plot(transfer1[0:round(fs/2)],
+         color='black')
 # ax3.plot(phase[0:round(fs/2)],
 #          color='b', label=r'$D=4$')
 # ax4.plot(t2, synt,
@@ -76,4 +80,3 @@ ax2.legend(loc='best')
 plt.legend(fontsize=12)
 plt.tight_layout()
 plt.show()
-
