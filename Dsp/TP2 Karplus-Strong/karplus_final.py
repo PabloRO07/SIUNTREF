@@ -74,9 +74,6 @@ for i in range(4):
 
 
 
-#w2,transfer2[0:round(len(transfer2)/2)]
-
-#w3,transfer3[0:round(len(transfer3)/2)]
 
 t=np.linspace(0,(len(ks_0)/fs[0]),len(ks_0))
 t2=np.linspace(0,(len(ks1)/fs[1]),len(ks1))
@@ -87,9 +84,9 @@ fig, ((ax1, ax2),(ax3,ax4)) =\
 plt.subplots(nrows=2, ncols=2,sharex= 'col', figsize=(16, 10))
 fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ String$', fontsize=18)
 
-ax1.plot(w,transfer[0:round(len(transfer)/2)], color='b', label=r'$Fs=44.1k Hz$')
+ax1.plot(w,20*np.log10(transfer[0:round(len(transfer)/2)]), color='b', label=r'$Fs=44.1k Hz$')
 ax2.plot(t,ks_0, color='black', label=r'$Fs=44.1k Hz$')
-ax3.plot(w1[0:round(len(transfer1)/4)],transfer1[0:round(len(transfer1)/4)], color='b', label=r'$Fs=96k Hz$')
+ax3.plot(w1[0:round(len(transfer1)/4)],20*np.log10(transfer1[0:round(len(transfer1)/4)]), color='b', label=r'$Fs=96k Hz$')
 ax4.plot(t2,ks1, color='black', label=r'$Fs=96k Hz$')
 
 ax1.set_title(r'$ |H_{string}(e^{jw})| $', fontsize=14)
@@ -127,9 +124,9 @@ fig, ((ax1, ax2),(ax3,ax4)) =\
 plt.subplots(nrows=2, ncols=2,sharex= 'col', figsize=(16, 10))
 fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18)
 
-ax1.plot(w2,transfer2[0:round(len(transfer2)/2)], color='b', label=r'$Fs=44.1k Hz$')
+ax1.plot(w2,20*np.log10(transfer2[0:round(len(transfer2)/2)]), color='b', label=r'$Fs=44.1k Hz$')
 ax2.plot(t3,ks2, color='black', label=r'$Fs=44.1k Hz$')
-ax3.plot(w3[0:round(len(transfer3)/4)],transfer3[0:round(len(transfer3)/4)], color='b', label=r'$Fs=96k Hz$')
+ax3.plot(w3[0:round(len(transfer3)/4)],20*np.log10(transfer3[0:round(len(transfer3)/4)]), color='b', label=r'$Fs=96k Hz$')
 ax4.plot(t4,ks3, color='black', label=r'$Fs=96k Hz$')
 
 ax1.set_title(r'$ |H_{Drum}(e^{jw})| $', fontsize=14)

@@ -4,7 +4,7 @@ import soundfile as sf
 import scipy as sc 
 import karplus_final as ks
 
-def extended_ks(f, fs, n, b,bw,rho):
+def extended_ks(f, fs, n, b,bw,rho,beta):
     """
     :param f: Frecuency to synthesize
     :param fs: Sampling frequency
@@ -31,7 +31,6 @@ def extended_ks(f, fs, n, b,bw,rho):
             acumulador=wavetable_pick[i]
         wavetable=wavetable_pick
 # Pick position Comb filter He
-    beta=0.5
     wavetable_d=np.hstack((np.zeros(round(l*beta)),wavetable))
     wavetable_comb_pick=np.zeros(l)
     a1=0
@@ -61,10 +60,10 @@ def extended_ks(f, fs, n, b,bw,rho):
             y=karplus[i]
 
 
-    return karplus,wavetable
+    return karplus
 
 
-karplus,wavetable=extended_ks(100, 12000, 1, 1,0,0)
+karplus=extended_ks(100, 12000, 1, 1,0,0,0.5)
 sf.write('prueba_dinamic_filter2.wav',karplus,44100)
 karplus2=ks.karplus(100, 44100, 1, 1)
 sf.write('prueba_dinamic_filter.wav',karplus2,44100)
