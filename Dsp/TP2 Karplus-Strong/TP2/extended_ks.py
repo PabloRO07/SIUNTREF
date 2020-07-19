@@ -3,12 +3,13 @@ import soundfile as sf
 import karplus as ks
 
 
-def extended_ks(f, fs, n, b, R):
+def extended_ks(f, fs, n, b, r):
     """
     :param f: Frecuency to synthesize
     :param fs: Sampling frequency
     :param n: Long time in second of the output signal
     :param b: Probabilistic parameter b>9 for string synthesizing  and 0>=b<9 for drum synthesizing
+    :param r:
     :return: Signal of "f" frequency, drum or string, of time "n"
     """
     n = n*fs
@@ -24,7 +25,7 @@ def extended_ks(f, fs, n, b, R):
     l = len(wavetable)
     a = 0
     for i in range(l):
-        wavetable[i] = (1-R)*wavetable[i] + R*y
+        wavetable[i] = (1-r)*wavetable[i] + r*y
         y = wavetable[i]
 
     for i in range(n):
@@ -40,9 +41,3 @@ def extended_ks(f, fs, n, b, R):
         a = a % len(wavetable)
 
     return karplus
-
-
-karplus = extended_ks(50, 44100, 1, 1, 0.9)
-sf.write('prueba_dinamic_filter2.wav', karplus, 44100)
-karplus2 = ks.karplus(50, 44100, 1, 1)
-sf.write('prueba_dinamic_filter.wav', karplus2, 44100)

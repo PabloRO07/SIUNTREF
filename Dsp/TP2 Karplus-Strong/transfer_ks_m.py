@@ -5,7 +5,7 @@ import scipy as sc
 
 a = 0
 v_anterior = 0
-fs=44100
+fs =44100
 f=100
 n=44100
 karplus = np.zeros(n)
