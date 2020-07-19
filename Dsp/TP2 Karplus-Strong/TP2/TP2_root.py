@@ -5,6 +5,7 @@ import scipy as sc
 import delay4 as dl4
 import echo_infinito as ec
 import karplus as ks
+import extended_ks as ks
 
 # This script binds the fourth systems proposed to analyze
 
@@ -50,7 +51,7 @@ ax4.plot(t2, synt,
          color='black', label=r'$ S= 500 ms $')
 
 
-ax1.set_title(r'$ |H_1(e^{jw})| $', fontsize=14)
+ax1.set_title(r'$ Signal Spectre $', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.legend(loc='best')
 
@@ -112,7 +113,7 @@ ax4.plot(t2, synth,
          color='black', label=r'$ S= 500 ms $')
 
 
-ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14)
+ax1.set_title(r'$ Signal Spectre$', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.legend(loc='best')
 
@@ -196,7 +197,7 @@ ax3.plot(w1[0:round(len(transfer1)/4)], transfer1[0:round(len(transfer1)/4)],
 ax4.plot(t2, ks1,
          color='black', label=r'$Fs=96k Hz$')
 
-ax1.set_title(r'$ |H_{string}(e^{jw})| $', fontsize=14)
+ax1.set_title(r'$Signal Spectre$', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
@@ -206,7 +207,7 @@ ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
 
-ax3.set_title(r'$|H_{string}(e^{jw})|$', fontsize=14)
+ax3.set_title(r'$Signal Spectre$', fontsize=14)
 ax3.set_ylabel(r'$Amplitude$', fontsize=14)
 ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
@@ -239,7 +240,7 @@ ax3.plot(w3[0:round(len(transfer3)/4)], transfer3[0:round(len(transfer3)/4)],
 ax4.plot(t4, ks3,
          color='black', label=r'$Fs=96k Hz$')
 
-ax1.set_title(r'$ |H_{Drum}(e^{jw})| $', fontsize=14)
+ax1.set_title(r'$ Signal Spectre| $', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
@@ -249,7 +250,7 @@ ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
 
-ax3.set_title(r'$|H_{Drum}(e^{jw})|$', fontsize=14)
+ax3.set_title(r'$Signal Spectre$', fontsize=14)
 ax3.set_ylabel(r'$Amplitude$', fontsize=14)
 ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
@@ -263,3 +264,11 @@ ax4.legend(loc='best')
 plt.legend(fontsize=12)
 plt.tight_layout()
 plt.show()
+
+# KS Extended
+ks.extended_ks()
+
+
+
+
+
