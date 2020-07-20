@@ -71,7 +71,7 @@ def extended_ks(f, fs, n, b,bw,rho,beta):
 f0 = 100
 fs0 = 44100
 n0 = 1
-b0 = 0.5
+b0 = 1
 bw0 = fs0  # So is not filtering
 rho0 = 0.8
 beta0 = 0.5
@@ -80,7 +80,7 @@ sf.write('KSM_'+str(f0)+'_'+str(fs0/1000)+'khz_blend_'+str(b0)+'_bw_'+str(bw0)+'
 f1 = 100
 fs1 = 44100
 n1 = 1
-b1 = 0.5
+b1 = 1
 bw1 = 100  # Wc in 100Hz
 rho1 = 0
 beta1 = 0
