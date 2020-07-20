@@ -29,13 +29,13 @@ def extended_ks(f, fs, n, b,bw,rho,beta):
     y = 0
     acumulador = 0
     wavetable_pick = np.zeros(l)
-    if rho!=0:
+    if rho != 0:
         for i in range(l):
             wavetable_pick[i] = wavetable[i] - rho*(wavetable[i]-acumulador)
             acumulador = wavetable_pick[i]
         wavetable = wavetable_pick
 # Pick position Comb filter He
-    if beta !=0:
+    if beta != 0:
         wavetable_d = np.hstack((np.zeros(round(l*beta)), wavetable))
         wavetable_comb_pick = np.zeros(l)
         a1 = 0
@@ -104,38 +104,37 @@ plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) =\
 plt.subplots(nrows=2, ncols=2, sharex='col', figsize=(16, 10))
 if b0 == 1:
-    fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ String$', fontsize=18)
+    fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ String$', fontsize=18, y=0.99)
 else:
-    fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ Drum$', fontsize=18)
+    fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ Drum$', fontsize=18, y=0.99)
 
 ax1.plot(w0, 20*np.log10(spectre[0:round(len(spectre)/2)]),
-         color='b', label=r'$ \ Fs \  = \ $'+str(fs0/1000)+r'$ \ k \ Hz$')
-ax2.plot(t0, karplus0, color='black', label=r'$ \ Fs \  = \ $'+str(fs0/1000)+r'$ \ k \ Hz$')
+         color='b', label=r'$Fs=$'+str(fs0/1000)+r'$kHz$')
+ax2.plot(t0, karplus0, color='black', label=r'$Fs=$'+str(fs0/1000)+r'$kHz$')
 ax3.plot(w1[0:round(len(spectre1)/2)], 20*np.log10(spectre1[0:round(len(spectre1)/2)])
-         , color='b', label=r'$ \ Fs \  = \ $'+str(fs1/1000)+r'$ \ k \ Hz$')
-ax4.plot(t1, karplus2, color='black', label=r'$ \ Fs \  = \ $'+str(fs1/1000)+r'$ \ k \ Hz$')
+         , color='b', label=r'$Fs=$'+str(fs1/1000)+r'$kHz$')
+ax4.plot(t1, karplus2, color='black', label=r'$Fs =$'+str(fs1/1000)+r'$kHz$')
 
-ax1.set_title(r'$ Signal \ Spectre $', fontsize=14)
+ax1.set_title(r'$ Signal \ Spectre $', fontsize=14, y=0.999, x=0.1)
 ax1.set_ylabel(r'$Amplitude  \ [dB]$', fontsize=14)
 ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
 
-ax2.set_title(r'$ Signal \ $'+str(f0)+r'$ \ Hz $', fontsize=14)
+ax2.set_title(r'$ Signal \ $'+str(f0)+r'$ \ Hz $', fontsize=14, y=0.999, x=0.9)
 ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
 
-ax3.set_title(r'$ Signal \ Spectre$', fontsize=14)
+ax3.set_title(r'$ Signal \ Spectre$', fontsize=14, y=0.999, x=0.1)
 ax3.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
 ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
 
-ax4.set_title(r'$ Signal \ $'+str(f1)+r'$ \ Hz $', fontsize=14)
+ax4.set_title(r'$ Signal \ $'+str(f1)+r'$ \ Hz $', fontsize=14, y=0.999, x=0.9)
 ax4.set_ylabel(r'$Amplitude$', fontsize=14)
 ax4.set_xlabel(r'$Time [S]$', fontsize=14)
 ax4.legend(loc='best')
 
 
-plt.legend(fontsize=14)
 plt.tight_layout()
 plt.show()
