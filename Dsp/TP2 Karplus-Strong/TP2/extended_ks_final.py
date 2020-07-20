@@ -109,11 +109,11 @@ else:
     fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ Drum$', fontsize=18)
 
 ax1.plot(w0, 20*np.log10(spectre[0:round(len(spectre)/2)]),
-         color='b', label=fs0)
-ax2.plot(t0, karplus0, color='black', label=fs0)
+         color='b', label=r'$Fs=$'+str(fs0)+r'$Samples$')
+ax2.plot(t0, karplus0, color='black', label=r'$Fs=$'+str(fs0)+r'$Samples$')
 ax3.plot(w1[0:round(len(spectre1)/2)], 20*np.log10(spectre1[0:round(len(spectre1)/2)])
-         , color='b', label=fs1)
-ax4.plot(t1, karplus2, color='black', label=fs1)
+         , color='b', label=r'$Fs=$'+str(fs1)+r'$Samples$')
+ax4.plot(t1, karplus2, color='black', label=r'$Fs=$'+str(fs1)+r'$Samples$')
 
 ax1.set_title(r'$ Signal \ Spectre $', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)

@@ -92,7 +92,7 @@ ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
 
-ax2.set_title(r'$ String \ 100 \ Hz  $', fontsize=14)
+ax2.set_title(r'$ String\ $'+str(f[1])+r'$Hz $', fontsize=14)
 ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
@@ -102,7 +102,7 @@ ax3.set_ylabel(r'$Amplitude$', fontsize=14)
 ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
 
-ax4.set_title(r'$ String \ 100\ Hz $', fontsize=14)
+ax4.set_title(r'$ String\ $'+str(f[3])+r'$Hz $', fontsize=14)
 ax4.set_ylabel(r'$Amplitude$', fontsize=14)
 ax4.set_xlabel(r'$Time [S]$', fontsize=14)
 ax4.legend(loc='best')
@@ -122,11 +122,11 @@ plt.subplots(nrows=2, ncols=2, sharex= 'col', figsize=(16, 10))
 fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18)
 
 ax1.plot(w2, 20*np.log10(transfer2[0:round(len(transfer2)/2)]),
-         color='b', label=fs[2])
-ax2.plot(t3, ks2, color='black', label=fs[2])
+         color='b', label='Fs='+str(fs[2])+r'$Samples$')
+ax2.plot(t3, ks2, color='black', label='Fs='+str(fs[2])+r'$Samples$')
 ax3.plot(w3[0:round(len(transfer3)/4)], 20*np.log10(transfer3[0:round(len(transfer3)/4)]),
-         color='b', label=fs[3])
-ax4.plot(t4, ks3, color='black', label=fs[3])
+         color='b', label='Fs='+str(fs[3])+r'$Samples$')
+ax4.plot(t4, ks3, color='black', label='Fs='+str(fs[3])+r'$Samples$')
 
 ax1.set_title(r'$ Drum \ Spectre $', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
