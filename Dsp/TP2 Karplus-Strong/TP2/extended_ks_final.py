@@ -76,7 +76,7 @@ bw0 = fs0  # So is not filtering
 rho0 = 0.8
 beta0 = 0.5
 karplus0 = extended_ks(f0, fs0, n0, b0, bw0, rho0, beta0)
-sf.write('KSM_bw44100_rho0.8_beta0.5.wav', karplus0, 44100)
+sf.write('KSM_'+str(f0)+'_'+str(fs0/1000)+'khz_blend_'+str(b0)+'_bw_'+str(bw0)+'_dyn_'+str(rho0)+'_pickcomb_'+str(beta0)+'.wav', karplus0, 44100)
 f1 = 100
 fs1 = 44100
 n1 = 1
@@ -85,7 +85,7 @@ bw1 = 100  # Wc in 100Hz
 rho1 = 0
 beta1 = 0
 karplus2 = extended_ks(f1, fs1, n1, b1, bw1, rho1, beta1)
-sf.write('KSM_bw100.wav', karplus2, 44100)
+sf.write('KSM_'+str(f1)+'_'+str(fs1/1000)+'khz_blend_'+str(b1)+'_bw_'+str(bw1)+'_dyn_'+str(rho1)+'_pickcomb_'+str(beta1)+'.wav', karplus2, 44100)
 
 
 # Data Process KSM
@@ -109,28 +109,28 @@ else:
     fig.suptitle(r'$Karplus\ Strong\ Modified\ Synthesizing \ Drum$', fontsize=18)
 
 ax1.plot(w0, 20*np.log10(spectre[0:round(len(spectre)/2)]),
-         color='b', label=r'$Fs=$'+str(fs0)+r'$Samples$')
-ax2.plot(t0, karplus0, color='black', label=r'$Fs=$'+str(fs0)+r'$Samples$')
+         color='b', label=r'$ \ Fs \  = \ $'+str(fs0/1000)+r'$ \ k \ Hz$')
+ax2.plot(t0, karplus0, color='black', label=r'$ \ Fs \  = \ $'+str(fs0/1000)+r'$ \ k \ Hz$')
 ax3.plot(w1[0:round(len(spectre1)/2)], 20*np.log10(spectre1[0:round(len(spectre1)/2)])
-         , color='b', label=r'$Fs=$'+str(fs1)+r'$Samples$')
-ax4.plot(t1, karplus2, color='black', label=r'$Fs=$'+str(fs1)+r'$Samples$')
+         , color='b', label=r'$ \ Fs \  = \ $'+str(fs1/1000)+r'$ \ k \ Hz$')
+ax4.plot(t1, karplus2, color='black', label=r'$ \ Fs \  = \ $'+str(fs1/1000)+r'$ \ k \ Hz$')
 
 ax1.set_title(r'$ Signal \ Spectre $', fontsize=14)
-ax1.set_ylabel(r'$Amplitude$', fontsize=14)
+ax1.set_ylabel(r'$Amplitude  \ [dB]$', fontsize=14)
 ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
 
-ax2.set_title('Signal', fontsize=14)
+ax2.set_title(r'$ Signal \ $'+str(f0)+r'$ \ Hz $', fontsize=14)
 ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
 
-ax3.set_title(r'$Signal \ Spectre$', fontsize=14)
-ax3.set_ylabel(r'$Amplitude$', fontsize=14)
+ax3.set_title(r'$ Signal \ Spectre$', fontsize=14)
+ax3.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
 ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
 
-ax4.set_title('Signal', fontsize=14)
+ax4.set_title(r'$ Signal \ $'+str(f1)+r'$ \ Hz $', fontsize=14)
 ax4.set_ylabel(r'$Amplitude$', fontsize=14)
 ax4.set_xlabel(r'$Time [S]$', fontsize=14)
 ax4.legend(loc='best')
