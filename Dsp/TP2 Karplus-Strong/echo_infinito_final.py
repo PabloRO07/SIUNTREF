@@ -25,8 +25,8 @@ def echo_infinito(xn, a, d, c):
 
 # System 2 Infinite Echoes
 fs = 44100
-d = 4  # Delay in samples
-s = 0.5  # Time in secods for test signal
+d = 6  # Delay in samples
+s = 0.4  # Time in secods for test signal
 d2 = round(s*44100)  # Samples to delay the Signal
 alfa = 0.5  # Echoes Amplitude
 c = 0.01
@@ -53,14 +53,14 @@ plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) =\
 plt.subplots(nrows=2, ncols=2, sharex='col', figsize=(16, 10))
 fig.suptitle(r'$ Analisis \ del \ sistema \ 2 \ Infinite Echoes \ delay $', fontsize=18)
-ax1.plot(frecuency_response2[0:round(fs/2)], color='b', label=r'$D=4$')
+ax1.plot(20*np.log10(frecuency_response2[0:round(fs/2)]), color='b',  label='D = '+str(d))
 ax2.plot(t1, audio, color='black')
-ax3.plot(phase2[0:round(fs/2)], color='b', label=r'$D=4$')
-ax4.plot(t2, synth, color='black', label=r'$ S= 500 ms $')
+ax3.plot(phase2[0:round(fs/2)], color='b',  label='D = '+str(d))
+ax4.plot(t2, synth, color='black', label='Delay = '+str(s*1000)+'ms')
 
 
 ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14)
-ax1.set_ylabel(r'$Amplitude$', fontsize=14)
+ax1.set_ylabel(r'$Amplitude [dB]$', fontsize=14)
 ax1.legend(loc='best')
 
 
@@ -70,7 +70,7 @@ ax2.legend(loc='best')
 
 
 ax3.set_title(r'$Fase \ \angle \ H_2(e^{jw}) $', fontsize=14)
-ax3.set_ylabel(r'$Amplitud$', fontsize=14)
+ax3.set_ylabel(r'$Amplitud \ [rad]$', fontsize=14)
 ax3.set_xlabel(r'$Frecuencia [Hz]$', fontsize=14)
 ax3.legend(loc='best')
 
