@@ -31,15 +31,16 @@ sf.write('karplus_hn.wav', karplus, fs)
 # PLOT Frequency response karplus strong system
 plt.style.use('seaborn')
 fig, (ax1, ax2) =\
-plt.subplots(nrows=2, ncols=1, sharex='col', figsize=(16, 10))
-fig.suptitle(r'$ Transfer \ Function \ h_3[n]$', fontsize=18, y=0.991)
+plt.subplots(nrows=2, ncols=1, figsize=(16, 10))
+fig.suptitle(r'$ Transfer \ Function \ |H_3(e^{jw})| $', fontsize=18, y=0.991)
 
-ax1.plot(w, 20*np.log10(transfer[0:round(n/2)]), color='b', label=r'$D = $'+str(d))
-ax2.plot(w, phase[0:round(n/2)], color='b', label=r'$D = $'+str(d))
+ax1.plot(w, 20*np.log10(transfer[0:round(n/2)]), color='b',label='Fs = '+str(int(fs/1000))+' K hz'+','+'f ='+str(f))
+ax2.plot(w, phase[0:round(n/2)], color='b')
 
 
-ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14, y=0.999, x=0.025)
+ax1.set_title(r'$ |H_3(e^{jw})| $', fontsize=14, y=0.999, x=0.025)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
+ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
 
 
@@ -50,5 +51,7 @@ ax2.legend(loc='best')
 
 
 plt.legend(fontsize=12)
+plt.savefig('sistema3_1d_1alfa.png')
 plt.tight_layout()
+
 plt.show()

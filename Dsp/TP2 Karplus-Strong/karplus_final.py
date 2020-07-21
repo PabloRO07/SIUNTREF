@@ -81,20 +81,20 @@ t2=np.linspace(0,(len(ks1)/fs[1]),len(ks1))
 # PLOT String Section
 plt.style.use('seaborn')  # ploteos del sistema 3 para cuerda
 fig, ((ax1, ax2),(ax3,ax4)) =\
-plt.subplots(nrows=2, ncols=2,sharex= 'col', figsize=(16, 10))
-fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ String$', fontsize=18)
+plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
+#fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ String$', fontsize=18)
 
 ax1.plot(w,20*np.log10(transfer[0:round(len(transfer)/2)]), color='b', label=r'$Fs=44.1k Hz$')
 ax2.plot(t,ks_0, color='black', label=r'$Fs=44.1k Hz$')
 ax3.plot(w1[0:round(len(transfer1)/4)],20*np.log10(transfer1[0:round(len(transfer1)/4)]), color='b', label=r'$Fs=96k Hz$')
 ax4.plot(t2,ks1, color='black', label=r'$Fs=96k Hz$')
 
-ax1.set_title(r'$ |H_{string}(e^{jw})| $', fontsize=14)
+ax1.set_title(r'$ Spectrum_{string} $', fontsize=14)
 ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.set_xlabel(r'$Frecuency [Hz]$', fontsize=14)
 ax1.legend(loc='best')
 
-ax2.set_title(r'$ String \ 440 \ Hz  $', fontsize=14)
+ax2.set_title(r'$ String \ 100 \ Hz  $', fontsize=14)
 ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.set_xlabel(r'$Time [S]$', fontsize=14)
 ax2.legend(loc='best')
@@ -121,7 +121,7 @@ t4=np.linspace(0,(len(ks3)/fs[3]),len(ks3))
 
 plt.style.use('seaborn')  # ploteos del sistema 3 para Drums
 fig, ((ax1, ax2),(ax3,ax4)) =\
-plt.subplots(nrows=2, ncols=2,sharex= 'col', figsize=(16, 10))
+plt.subplots(nrows=2, ncols=2, sharex= 'col', figsize=(16, 10))
 fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18)
 
 ax1.plot(w2,20*np.log10(transfer2[0:round(len(transfer2)/2)]), color='b', label=r'$Fs=44.1k Hz$')
