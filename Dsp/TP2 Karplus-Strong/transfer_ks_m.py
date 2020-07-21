@@ -74,10 +74,10 @@ sf.write('karplus_hn.wav', karplus, fs)
 plt.style.use('seaborn')
 fig, (ax1, ax2) =\
 plt.subplots(nrows=2, ncols=1, sharex='col', figsize=(16, 10))
-fig.suptitle(r'$ Analisis \ del \ sistema \ 2 \ Infinite Echoes \ delay $', fontsize=18, y=0.991)
+fig.suptitle(r'$ Transfer \ Function \ h_4[n] $', fontsize=18, y=0.991)
 
-ax1.plot(w, 20*np.log10(transfer[0:round(n/2)]), color='b', label=r'$D=4$')
-ax2.plot(w, phase[0:round(n/2)], color='b', label=r'$D=4$')
+ax1.plot(w, 20*np.log10(transfer[0:round(n/2)]), color='b', label=r'$\$')
+ax2.plot(w, phase[0:round(n/2)], color='b', label=r'$ \$')
 
 
 ax1.set_title(r'$ |H_2(e^{jw})| $', fontsize=14, y=0.999, x=0.025)
@@ -85,7 +85,7 @@ ax1.set_ylabel(r'$Amplitude$', fontsize=14)
 ax1.legend(loc='best')
 
 
-ax2.set_title(r'$Primitive \ Signal \ x[n] $', fontsize=14, y=0.999, x=0.065)
+ax2.set_title(r'$Phase \ x[n] $', fontsize=14, y=0.999, x=0.035)
 ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 ax2.legend(loc='best')
 

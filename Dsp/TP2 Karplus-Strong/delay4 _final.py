@@ -5,9 +5,9 @@ import scipy as sc
 
 
 # Delay 
-def delay4(signal,d,y):
+def delay4(signal, d, y):
     """Entry Parameters
-    This function recive a entry signal and generate 4 delayed signals, amplified "y" times
+    This function receive a entry signal and generate 4 delayed signals, amplified "y" times
     signal = Signal Entry
     d = Delay time
     y = amplitude  of delays
@@ -25,10 +25,10 @@ def delay4(signal,d,y):
     synthesis = (signal+de1+de2+de3+d4)
     return synthesis
 
-# System 1 Finite Echoes
 
+# System 1 Finite Echoes
 fs = 44100
-d =  3 # Delay in samples
+d = 3  # Delay in samples
 s = 0.5  # Time in seconds
 d2 = round(s*44100)  # Samples to delay input signal 
 alfa = 0.5  # Echoes Amplitude
@@ -55,34 +55,33 @@ t2 = np.linspace(0, (len(synt)/fs), len(synt))  # Time Vector for Y2[n]
 plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) = \
     plt.subplots(nrows=2, ncols=2, sharex='col', figsize=(16, 10))
-fig.suptitle(r'$ Analisis \ del \ sistema \ 1 \ ecos \ finito $',
+fig.suptitle(r'$ System \ Analysis \ Finite \ Echoes$',
              fontsize=18)
 ax1.plot(20*np.log10(frecuency_response[0:round(fs/2)]),
-         color='b', label='D = '+str(d))
+         color='b', label=r'$D = $'+str(d))
 ax2.plot(t1, audio,
          color='black')
 ax3.plot(phase[0:round(fs/2)],
-         color='b', label='D = '+str(d))
+         color='b', label=r'$D = $'+str(d))
 ax4.plot(t2, synt,
-         color='black', label='Delay = '+str(s*1000)+'ms')
+         color='black', label=r'$Delay = $'+str(s*1000)+r'$ms$')
 
 
 ax1.set_title(r'$ |H_1(e^{jw})| $', fontsize=14)
-ax1.set_ylabel(r'$Amplitud$ \ [dB]', fontsize=14)
+ax1.set_ylabel(r'$Amplitude$ \ [dB]', fontsize=14)
 ax1.legend(loc='best')
 
-ax2.set_title(r'$Señal \ Original \ x[n] $', fontsize=14)
-ax2.set_ylabel(r'$Amplitud$', fontsize=14)
-ax2.legend(loc='best')
+ax2.set_title(r'$Primitive \ Signal \ x[n] $', fontsize=14)
+ax2.set_ylabel(r'$Amplitude$', fontsize=14)
 
-ax3.set_title(r'$Fase \ \angle \ H_1(e^{jw})  $', fontsize=14)
-ax3.set_ylabel(r'$Amplitud  \  \ [rad] $', fontsize=14)
-ax3.set_xlabel(r'$Frecuencia [Hz]$', fontsize=14)
+ax3.set_title(r'$Phase \ \angle \ H_1(e^{jw})  $', fontsize=14)
+ax3.set_ylabel(r'$Amplitude [rad] $', fontsize=14)
+ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
 ax3.legend(loc='best')
 
-ax4.set_title(r'$Señal \ de \ salida \ y_1[n]  $', fontsize=14)
-ax4.set_ylabel(r'$Amplitud$', fontsize=14)
-ax4.set_xlabel(r'$Tiempo [s]$', fontsize=14)
+ax4.set_title(r'$Output \ Signal \ y_1[n]  $', fontsize=14)
+ax4.set_ylabel(r'$Amplitude$', fontsize=14)
+ax4.set_xlabel(r'$Time [s]$', fontsize=14)
 ax4.legend(loc='best')
 
 plt.legend(fontsize=12)
