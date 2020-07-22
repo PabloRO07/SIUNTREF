@@ -3,9 +3,10 @@ from matplotlib import pyplot as plt
 import soundfile as sf 
 import scipy as sc 
 
+
 def karplus(f, fs, n, b):
     """
-    :param f: Frecuency to synthesize
+    :param f: Frequency to synthesize
     :param fs: Sampling frequency
     :param n: Long time in second of the output signal
     :param b: Probabilistic parameter b>9 for string synthesizing  and 0>=b<9 for drum synthesizing
@@ -40,10 +41,10 @@ def karplus(f, fs, n, b):
 
 
 for i in range(4):
-    fs = np.array([8000, 16000,8000, 16000]) # Sample frequency 
-    f = np.array([40, 120,60, 180]) # pitch frequency 
-    n = 1 # Time of audio syntethize 
-    b = np.array([1, 1, 0.5, 0.5]) # Blend Factor, if b=1 String sound , other wise Drum
+    fs = np.array([22050, 16000, 8000, 16000])  # Sample frequency
+    f = np.array([100, 120, 60, 180])  # pitch frequency
+    n = 1  # Time of audio syntethize
+    b = np.array([1, 1, 0.5, 0.5])  # Blend Factor, if b=1 String sound , other wise Drum
     sistema3_wav = (['string'+str(f[0])+'Hz_'+str(fs[0]/1000)+'khz.wav', 'string_'+str(f[1])
                      + 'Hz_'+str(fs[1]/1000) + 'khz.wav', 'snare_'+str(f[2])+'Hz_'+str(fs[2]/1000)+
                      'khz.wav', 'snare_'+str(f[3])+'Hz_'+str(fs[3]/1000)+'khz.wav'])
@@ -78,9 +79,9 @@ t2 = np.linspace(0, (len(ks1)/fs[1]), len(ks1))
 
 # PLOT String Section
 plt.style.use('seaborn')  # ploteos del sistema 3 para cuerda
-fig, ((ax1, ax2), (ax3, ax4)) =\
-plt.subplots(nrows=2, ncols=2, sharex='col', figsize=(16, 10))
-fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ String$', fontsize=18, y=0.99)
+fig1, ((ax1, ax2), (ax3, ax4)) =\
+plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
+# fig1.suptitle(r'$Karplus\ Strong\ Synthesizing \ String$', fontsize=18, y=0.99)
 
 ax1.plot(w, 20*np.log10(transfer[0:round(len(transfer)/2)]),
          color='b', label=r'$Fs=$'+str(int(fs[0]/1000))+r'$kHz$')
@@ -111,43 +112,44 @@ ax4.legend(loc='best')
 
 
 plt.tight_layout()
+plt.savefig('String_100Hz_Fs=22.05kHz.png')
 plt.show()
 
-# PLOT Drum Section
-t3 = np.linspace(0, (len(ks2)/fs[2]), len(ks2))
-t4 = np.linspace(0, (len(ks3)/fs[3]), len(ks3))
-
-plt.style.use('seaborn')  # ploteos del sistema 3 para Drums
-fig, ((ax1, ax2), (ax3, ax4)) =\
-plt.subplots(nrows=2, ncols=2, sharex= 'col', figsize=(16, 10))
-fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18, y=0.99)
-
-ax1.plot(w2, 20*np.log10(transfer2[0:round(len(transfer2)/2)]),
-         color='b', label=r'$Fs=$'+str(int(fs[2]/1000))+r'$kHz$')
-ax2.plot(t3, ks2, color='black', label=r'$Fs=$'+str(int(fs[2]/1000))+r'$kHz$')
-ax3.plot(w3[0:round(len(transfer3)/4)], 20*np.log10(transfer3[0:round(len(transfer3)/4)]),
-         color='b', label=r'$Fs=$'+str(int(fs[3]/1000))+r'$kHz$')
-ax4.plot(t4, ks3, color='black', label=r'$Fs=$'+str(int(fs[3]/1000))+r'$kHz$')
-
-ax1.set_title(r'$Drum \ Spectre$', fontsize=14, y=0.999, x=0.1)
-ax1.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
-ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
-ax1.legend(loc='best')
-
-ax2.set_title(r'$ Drum\ $'+str(f[2])+r'$Hz $', fontsize=14, y=0.999, x=0.9)
-ax2.set_ylabel(r'$Amplitude  $', fontsize=14)
-ax2.set_xlabel(r'$Time [S]$', fontsize=14)
-ax2.legend(loc='best')
-
-ax3.set_title(r'$Drum \ Spectre$', fontsize=14, y=0.999, x=0.1)
-ax3.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
-ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
-ax3.legend(loc='best')
-
-ax4.set_title(r'$ Drum\ $'+str(f[3])+r'$Hz $', fontsize=14, y=0.999, x=0.9)
-ax4.set_ylabel(r'$Amplitude$', fontsize=14)
-ax4.set_xlabel(r'$Time \  [S]$', fontsize=14)
-ax4.legend(loc='best')
+# # PLOT Drum Section
+# t3 = np.linspace(0, (len(ks2)/fs[2]), len(ks2))
+# t4 = np.linspace(0, (len(ks3)/fs[3]), len(ks3))
+#
+# plt.style.use('seaborn')  # ploteos del sistema 3 para Drums
+# fig, ((ax1, ax2), (ax3, ax4)) =\
+# plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
+# fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18, y=0.99)
+#
+# ax1.plot(w2, 20*np.log10(transfer2[0:round(len(transfer2)/2)]),
+#          color='b', label=r'$Fs=$'+str(int(fs[2]/1000))+r'$kHz$')
+# ax2.plot(t3, ks2, color='black', label=r'$Fs=$'+str(int(fs[2]/1000))+r'$kHz$')
+# ax3.plot(w3[0:round(len(transfer3)/4)], 20*np.log10(transfer3[0:round(len(transfer3)/4)]),
+#          color='b', label=r'$Fs=$'+str(int(fs[3]/1000))+r'$kHz$')
+# ax4.plot(t4, ks3, color='black', label=r'$Fs=$'+str(int(fs[3]/1000))+r'$kHz$')
+#
+# ax1.set_title(r'$Drum \ Spectre$', fontsize=14, y=0.999, x=0.1)
+# ax1.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
+# ax1.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
+# ax1.legend(loc='best')
+#
+# ax2.set_title(r'$ Drum\ $'+str(f[2])+r'$Hz $', fontsize=14, y=0.999, x=0.9)
+# ax2.set_ylabel(r'$Amplitude  $', fontsize=14)
+# ax2.set_xlabel(r'$Time [S]$', fontsize=14)
+# ax2.legend(loc='best')
+#
+# ax3.set_title(r'$Drum \ Spectre$', fontsize=14, y=0.999, x=0.1)
+# ax3.set_ylabel(r'$Amplitude \ [dB]$', fontsize=14)
+# ax3.set_xlabel(r'$Frequency [Hz]$', fontsize=14)
+# ax3.legend(loc='best')
+#
+# ax4.set_title(r'$ Drum\ $'+str(f[3])+r'$Hz $', fontsize=14, y=0.999, x=0.9)
+# ax4.set_ylabel(r'$Amplitude$', fontsize=14)
+# ax4.set_xlabel(r'$Time \  [S]$', fontsize=14)
+# ax4.legend(loc='best')
 
 
 plt.tight_layout()

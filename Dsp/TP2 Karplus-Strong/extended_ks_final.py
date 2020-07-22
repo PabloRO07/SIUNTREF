@@ -6,16 +6,7 @@ import karplus_final as ks
 
 
 def extended_ks(f, fs, n, b, bw, rho, beta):
-    """
-    :param f: Frecuency to synthesize
-    :param fs: Sampling frequency
-    :param n: Long time in second of the output signal
-    :param b: Probabilistic parameter b>9 for string synthesizing  and 0>=b<9 for drum synthesizing
-    :param bw: Cur Frequency Dynamic Low pass Filter
-    :param rho: Pick direction Low pass filter From 0= no effect to 1
-    :param beta: Pick position Comb filter from 0= no effect, to 0.5
-    :return: Signal of "f" frequency, drum or string, of time "n"
-    """
+
     n = n*fs
     b = int(b*10)
     p = fs // f
