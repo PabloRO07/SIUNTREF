@@ -3,9 +3,10 @@ from matplotlib import pyplot as plt
 import soundfile as sf 
 import scipy as sc 
 
+
 def karplus(f, fs, n, b):
     """
-    :param f: Frecuency to synthesize
+    :param f: Frequency to synthesize
     :param fs: Sampling frequency
     :param n: Long time in second of the output signal
     :param b: Probabilistic parameter b>9 for string synthesizing  and 0>=b<9 for drum synthesizing
@@ -40,7 +41,7 @@ def karplus(f, fs, n, b):
 
 
 for i in range(4):
-    fs = np.array([44100,44100,44100,44100]) # Sample frequency 
+    fs = np.array([44100,22050,44100,44100]) # Sample frequency 
     f = np.array([120, 120,120, 120]) # pitch frequency 
     n = 1 # Time of audio syntethize 
     b = np.array([1, 1, 0.5, 0.5]) # Blend Factor, if b=1 String sound , other wise Drum
@@ -124,6 +125,7 @@ ax4.legend(loc='best')
 
 
 plt.tight_layout()
+plt.savefig('String_100Hz_Fs=22.05kHz.png')
 plt.show()
 
 # PLOT Drum Section
