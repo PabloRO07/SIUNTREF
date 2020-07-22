@@ -124,61 +124,8 @@ if __name__ == "__main__":
                                   ylabel, subplot, xscale, figure, xlim, 
                                   margins)
     
-#    # Cosine function
-#    omega = pi/4
-#    b = array([1.0, -cos(omega)])
-#    a = array([1, -2*cos(omega), 1.0])
-    
-    b, a = butter(2, [0.06, 0.7], 'bandpass')
 
-    # Get the poles and zeros
-    z, p, k = tf2zpk(b, a)
-
-    # Create zero-pole plot
-    figure(figsize=(16, 9))
-    subplot(2, 2, 1)
-    grid(True, color='0.9', linestyle='-', which='both', axis='both')
-    title('Poles and zeros')
     
-    # Display zeros, poles and gain
-    print (str(len(z)) + " zeros: " + str(z))
-    print (str(len(p)) + " poles: " + str(p))
-    print ("gain: " + str(k))
-    
-    # Impulse response
-    index = arange(0,20)
-    u = 1.0*(index==0)
-    y = lfilter(b, a, u)
-    subplot(2, 2, 3)
-    stem(index,y)
-    title('Impulse response')
-    margins(0, 0.1)
-    grid(True, color='0.9', linestyle='-', which='both', axis='both')
-    show()
-    
-    # Frequency response
-    w, h = freqz(b, a)
-    subplot(2, 2, 2)
-    plot(w/pi, 20*log10(abs(h)))
-    xscale('log')
-
-    title('Frequency response')
-    xlabel('Normalized frequency')
-    ylabel('Amplitude [dB]')
-    margins(0, 0.1)
-    grid(True, color = '0.7', linestyle='-', which='major', axis='both')
-    grid(True, color = '0.9', linestyle='-', which='minor', axis='both')
-    show()
-
-    # Phase
-    subplot(2, 2, 4)
-    plot(w/pi, 180/pi * unwrap(angle(h)))
-    xscale('log')
-    xlabel('Normalized frequency')
-    ylabel('Phase [degrees]')
-    grid(True, color = '0.7', linestyle='-', which='major')
-    grid(True, color = '0.9', linestyle='-', which='minor')
-    show()
-array=np.array([2,-1,-1])
+array=np.array([1,0,0,0,0,0,0,0,0,-0.5,-0.5])
 roots=np.roots(array)
-zplane(-1, roots)
+print(roots)

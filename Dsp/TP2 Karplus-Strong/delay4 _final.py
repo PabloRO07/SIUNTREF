@@ -29,9 +29,9 @@ def delay4(signal, d, y):
 # System 1 Finite Echoes
 fs = 44100
 d = 1  # Delay in samples
-s = 1/44100  # Time in seconds
+s = 0.5  # Time in seconds
 d2 = round(s*44100)  # Samples to delay input signal 
-alfa = 1 # Echoes Amplitude
+alfa = 0.5 # Echoes Amplitude
 
 audio, fs = sf.read('Midi69.wav')  # Test Audio
 synt = delay4(audio, d2, alfa)

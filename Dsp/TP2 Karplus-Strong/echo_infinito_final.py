@@ -26,11 +26,11 @@ def echo_infinito(xn, a, d, c):
 
 # System 2 Infinite Echoes
 fs = 44100
-d = 6  # Delay in samples
+d = 3  # Delay in samples
 s = 0.4  # Time in secods for test signal
 d2 = round(s*44100)  # Samples to delay the Signal
-alfa = 0.5  # Echoes Amplitude
-c = 0.01
+alfa = 0.9  # Echoes Amplitude
+c = 0.001
 audio, fs = sf.read('Midi69.wav')  # Test Audio
 synth = echo_infinito(audio, alfa, d2, c)
 
