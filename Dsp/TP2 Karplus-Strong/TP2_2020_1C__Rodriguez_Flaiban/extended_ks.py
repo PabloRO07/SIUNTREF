@@ -42,10 +42,8 @@ def extended_ks(f, fs, n, b, bw, rho, beta):
             wavetable_comb_pick[i] = wavetable[a1]-wavetable_d[i]
             a1 += 1
             a1 = a1 % len(wavetable)
-        wavetable=wavetable_comb_pick
-            
+        wavetable = wavetable_comb_pick
 
-    
     a = 0
     for i in range(n):
         h = np.random.randint(0, 9)
@@ -68,6 +66,7 @@ def extended_ks(f, fs, n, b, bw, rho, beta):
 
     return karplus
 
+
 # Function Run KSM
 f0 = 100
 fs0 = 22050
@@ -77,7 +76,8 @@ bw0 = fs0  # So is not filtering
 rho0 = 0
 beta0 = 0
 karplus0 = extended_ks(f0, fs0, n0, b0, bw0, rho0, beta0)
-sf.write('KSM_'+str(f0)+'_'+str(fs0/1000)+'khz_blend_'+str(b0)+'_bw_'+str(bw0)+'_dyn_'+str(rho0)+'_pickcomb_'+str(beta0)+'.wav', karplus0, 44100)
+sf.write('KSM_'+str(f0)+'_'+str(fs0/1000)+'khz_blend_'+str(b0)+'_bw_'+str(bw0)+'_dyn_'
+         +str(rho0)+'_pickcomb_'+str(beta0) + '.wav', karplus0, 44100)
 f1 = 100
 fs1 = 44100
 n1 = 1
@@ -86,8 +86,8 @@ bw1 = fs1  # Wc in 100Hz
 rho1 = 0
 beta1 = 0.5
 karplus2 = extended_ks(f1, fs1, n1, b1, bw1, rho1, beta1)
-sf.write('KSM_'+str(f1)+'_'+str(fs1/1000)+'khz_blend_'+str(b1)+'_bw_'+str(bw1)+'_dyn_'+str(rho1)+'_pickcomb_'+str(beta1)+'.wav', karplus2, 44100)
-
+sf.write('KSM_'+str(f1)+'_'+str(fs1/1000)+'khz_blend_'+str(b1)+'_bw_'+str(bw1)+'_dyn_'
+         + str(rho1)+'_pickcomb_'+str(beta1)+'.wav', karplus2, 44100)
 
 # Data Process KSM
 scpectre = sc.fft.fft(karplus0)  # Output FFT

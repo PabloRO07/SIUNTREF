@@ -31,7 +31,7 @@ fs = 44100
 d = 1  # Delay in samples
 s = 0.5  # Time in seconds
 d2 = round(s*44100)  # Samples to delay input signal 
-alfa = 0.5 # Echoes Amplitude
+alfa = 0.5  # Echoes Amplitude
 
 audio, fs = sf.read('Midi69.wav')  # Test Audio
 synt = delay4(audio, d2, alfa)
@@ -50,19 +50,19 @@ frecuency_response = abs(transfer)  # Frequency response
 phase = np.arctan((imag/real))
 t1 = np.linspace(0, (len(audio)/fs), len(audio))  # Time Vcetor for graph
 t2 = np.linspace(0, (len(synt)/fs), len(synt))  # Time Vector for Y2[n]
-w=np.linspace(0,len(transfer/2),len(transfer))
+w=np.linspace(0, len(transfer/2), len(transfer))
 
 
 # PLOT Section Finite Echoes
 plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) = \
     plt.subplots(nrows=2, ncols=2,  figsize=(16, 10))
-#fig.suptitle(r'$ System \ Analysis \ Finite \ Echoes$',
-#             fontsize=18)
-ax1.plot(w[0:round(len(transfer)/2)],20*np.log10(frecuency_response[0:round(len(transfer)/2)]) , color='b', label=r'$D = $'+str(d))
+fig.suptitle(r'$ System \ Analysis \ Finite \ Echoes$', fontsize=18)
+ax1.plot(w[0:round(len(transfer)/2)], 20*np.log10(frecuency_response[0:round(len(transfer)/2)]),
+         color='b', label=r'$D = $'+str(d))
 ax2.plot(t1, audio,
          color='black')
-ax3.plot(w[0:round(len(phase)/2)],phase[0:round(len(phase)/2)],
+ax3.plot(w[0:round(len(phase)/2)], phase[0:round(len(phase)/2)],
          color='b', label=r'$D = $'+str(d))
 ax4.plot(t2, synt,
          color='black', label=r'$Delay = $'+str(s*1000)+r'$ms$')

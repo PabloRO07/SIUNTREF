@@ -41,9 +41,9 @@ def karplus(f, fs, n, b):
 
 
 for i in range(4):
-    fs = np.array([44100,22050,44100,44100]) # Sample frequency 
-    f = np.array([120, 120,120, 120]) # pitch frequency 
-    n = 1 # Time of audio syntethize 
+    fs = np.array([44100, 22050, 44100, 44100]) # Sample frequency
+    f = np.array([120, 120, 120, 120])  # pitch frequency
+    n = 1  # Time of audio syntethize
     b = np.array([1, 1, 0.5, 0.5]) # Blend Factor, if b=1 String sound , other wise Drum
     sistema3_wav = (['string'+str(f[0])+'Hz_'+str(fs[0]/1000)+'khz.wav', 'string_'+str(f[1])
                      + 'Hz_'+str(fs[1]/1000) + 'khz.wav', 'snare_'+str(f[2])+'Hz_'+str(fs[2]/1000)+
@@ -135,7 +135,7 @@ t4 = np.linspace(0, (len(ks3)/fs[3]), len(ks3))
 plt.style.use('seaborn')  # ploteos del sistema 3 para Drums
 fig, ((ax1, ax2), (ax3, ax4)) =\
 plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
-fig.suptitle(r'$Karplus\ Strong\ Synthesizing \ Drum$', fontsize=18, y=0.99)
+fig.suptitle(r'$Karplus\ Strong\ Drum \ Synthesizing $', fontsize=18, y=0.99)
 
 ax1.plot(w2, 20*np.log10(transfer2[0:round(len(transfer2)/2)]),
          color='b', label=r'$Fs=$'+str(int(fs[2]/1000))+r'$kHz$')

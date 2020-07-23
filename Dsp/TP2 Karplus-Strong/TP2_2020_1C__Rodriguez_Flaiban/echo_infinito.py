@@ -53,7 +53,7 @@ t2 = np.linspace(0, (len(synth)/fs), len(synth))  # Time vector for Y2[n]
 plt.style.use('seaborn')
 fig, ((ax1, ax2), (ax3, ax4)) =\
 plt.subplots(nrows=2, ncols=2, figsize=(16, 10))
-# fig.suptitle(r'$ System\ Analysis\ Infinite\ Echoes $', fontsize=18)
+fig.suptitle(r'$ System\ Analysis\ Infinite\ Echoes $', fontsize=18)
 ax1.plot(20*np.log10(frecuency_response2[0:round(fs/2)]), color='b',  label=r'$D = $'+str(d))
 ax2.plot(t1, audio, color='black')
 ax3.plot(phase2[0:round(fs/2)], color='b',  label=r'$D = $'+str(d))
