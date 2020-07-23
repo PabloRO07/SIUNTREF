@@ -41,10 +41,10 @@ def karplus(f, fs, n, b):
 
 
 for i in range(4):
-    fs = np.array([44100, 22050, 44100, 44100]) # Sample frequency
-    f = np.array([120, 120, 120, 120])  # pitch frequency
-    n = 1  # Time of audio syntethize
-    b = np.array([1, 1, 0.5, 0.5]) # Blend Factor, if b=1 String sound , other wise Drum
+    fs = np.array([22050, 22050, 8000, 12000])  # Sample frequency
+    f = np.array([120, 330, 55, 200])  # pitch frequency
+    n = 3  # Time of audio syntethize
+    b = np.array([1, 1, 0.5, 0.5])  # Blend Factor, if b=1 String sound , other wise Drum
     sistema3_wav = (['string'+str(f[0])+'Hz_'+str(fs[0]/1000)+'khz.wav', 'string_'+str(f[1])
                      + 'Hz_'+str(fs[1]/1000) + 'khz.wav', 'snare_'+str(f[2])+'Hz_'+str(fs[2]/1000)+
                      'khz.wav', 'snare_'+str(f[3])+'Hz_'+str(fs[3]/1000)+'khz.wav'])
@@ -125,7 +125,6 @@ ax4.legend(loc='best')
 
 
 plt.tight_layout()
-plt.savefig('String_100Hz_Fs=22.05kHz.png')
 plt.show()
 
 # PLOT Drum Section
